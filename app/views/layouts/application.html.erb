@@ -6,6 +6,11 @@
     <!--integrity:html検証,crossorigin:ユーザー認証情報anonymous(不要)-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      
+    <!--googleフォント設定-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@500&family=Kosugi+Maru&family=Potta+One&family=Yomogi&display=swap" rel="stylesheet">
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -26,8 +31,6 @@
           <span style="font-size: 0.1em;">
             <% if Rails.env.development? %>
               <%= link_to '(テスト版)', tests_path %>
-            <% else %>
-              <%= "テスト版" %>
             <% end %>
           </span>
         </div>
