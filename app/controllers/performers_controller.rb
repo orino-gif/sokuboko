@@ -6,6 +6,6 @@ class PerformersController < ApplicationController
   private
   #ストロングパラメーター
   def user_params
-    params.require(:perfomer).permit(:image )
+    params.require(:perfomer).permit(:image)
   end
 end

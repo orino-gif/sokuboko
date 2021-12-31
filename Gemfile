@@ -4,12 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.2'
 
 gem 'devise'
+gem 'devise-bootstrap-views'
+gem 'devise-i18n' #devise日本語化
+gem 'devise-i18n-views'
+gem 'aws-ses'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
-#gem 'aws-ses'
+
 gem 'aws-sdk-rails'
 gem 'aws-sdk-s3', require: false
 gem 'dotenv-rails'
