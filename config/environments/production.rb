@@ -91,4 +91,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  config.action_mailer.delivery_method = :ses
+  
+  config.action_mailer.default_url_options = {  :host => 'illustlife.com', :protocol => 'https' }
+  
+  #メール送受信でエラーがあった場合に、エラー内容を出力する
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	  port:                 587,
+	  address:              'mail.so-net.ne.jp',
+		domain:               'so-net.ne.jp',
+		user_name:            'xr274375@fc5.so-net.ne.jp',
+		password:             'orino1013',
+		authentication:       'login'
+	 }
 end
