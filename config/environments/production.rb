@@ -94,7 +94,7 @@ Rails.application.configure do
   
   config.action_mailer.delivery_method = :ses
   
-  config.action_mailer.default_url_options = {  :host => 'illustlife.com', :protocol => 'https' }
+  config.action_mailer.default_url_options = {  :host => 'sokuboko.com', :protocol => 'https' }
   
   #メール送受信でエラーがあった場合に、エラー内容を出力する
   config.action_mailer.raise_delivery_errors = true
