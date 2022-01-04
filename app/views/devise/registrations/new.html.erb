@@ -7,6 +7,9 @@
     <%= f.label :ニックネーム %>
     <%= f.text_field :nickname, autofocus: true, class: 'form-control' %>
   </div>
+  
+  <label><%= f.radio_button :sex, "男" %>男</label>
+  <label><%= f.radio_button :sex, "女" %>女</label>
 
   <div class="form-group">
     <%= f.label :email %><br />
