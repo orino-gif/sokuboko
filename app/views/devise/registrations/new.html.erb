@@ -9,21 +9,26 @@
   </div>
   
   <div class="form-group">
-    <%= f.label :"フリガナ" %>
+    <%= f.label :"フリガナ(全角入力)" %>
     <%= f.text_field :furigana, autofocus: true, class: 'form-control' %>
   </div>
   
   <label><%= f.radio_button :sex, "男" %>男</label>
   <label><%= f.radio_button :sex, "女" %>女</label>
+  
+  <div class="form-group">
+    <%= f.label :"郵便番号(例：2702222)" %><br />
+    <%= f.text_field :post_number, autofocus: true, class: 'form-control' %>
+  </div>
 
   <div class="form-group">
-    <%= f.label :"住所" %><br />
+    <%= f.label :"住所(全角入力)" %><br />
     <%= f.text_field :address, autofocus: true, class: 'form-control' %>
   </div>
   
   <div class="form-group">
-    <%= f.label :"電話番号" %><br />
-    <%= f.text_field :number, autofocus: true, class: 'form-control' %>
+    <%= f.label :"電話番号(例：08017640797)" %><br />
+    <%= f.text_field :telephone_number, autofocus: true, class: 'form-control' %>
   </div>
   
   <div class="form-group">
