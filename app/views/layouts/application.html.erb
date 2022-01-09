@@ -51,7 +51,7 @@
             <% if user_signed_in? %>
               <div class="right">
                 <button type="button" class="btn btn-light">
-                  <%= link_to "ユーザー情報", "/performers/2", method: "get" %>
+                  <%= link_to "ユーザー情報", "/performers/#{@user.id}", method: "get" %>
                 </button>
                 <button type="button" class="btn btn-light">
                   <%= link_to "変更", edit_user_registration_path %>
