@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    resource.build_performer
+    resource.save
+  end
 
   # GET /resource/edit
   # def edit
@@ -59,4 +61,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  #ログイン後のリダイレクト先
+  def after_sign_in_path_for(resource)
+    redirect_to(performer_path(@user))
+  end
+  
+  #ユーザー情報変更後のリダイレクト先
+  def after_update_path_for(resource)
+      performer_path(@user)
+  end
 end
