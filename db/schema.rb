@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "furigana", default: "", null: false
     t.string "sex", default: "", null: false
     t.string "post_number", default: "", null: false
     t.string "address", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "furigana", default: "", null: false
     t.string "telephone_number", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
