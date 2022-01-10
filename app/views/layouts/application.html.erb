@@ -27,13 +27,12 @@
         <div class="col-md-auto">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
         </div>
+        
         <div class="col-md-auto">
           <span style="font-size: 2.5em;">即ボコ女子</span>
-          <span style="font-size: 0.1em;">
-            <% if Rails.env.development? %>
-              <%= link_to '(テスト版)', tests_path %>
-            <% end %>
-          </span>
+          <% if Rails.env.development? %>
+            <span style="font-size: 0.1em;"><%= link_to '(テスト版)', tests_path %></span>
+          <% end %>
         </div>
       </div>
       
@@ -51,10 +50,10 @@
             <% if user_signed_in? %>
               <div class="right">
                 <button type="button" class="btn btn-light">
-                  <%= link_to "ユーザー情報", "/performers/#{@user.id}", method: "get" %>
+                  <%= link_to "ユーザー情報", "/performers/#{@user.id}" %>
                 </button>
                 <button type="button" class="btn btn-light">
-                  <%= link_to "変更", edit_user_registration_path %>
+                  <%= link_to "変更", "/performers/#{@user.id}/edit" %>
                 </button>  
                 <button type="button" class="btn btn-light">
                   <%= link_to "ログアウト", destroy_user_session_path, method: "delete" %>

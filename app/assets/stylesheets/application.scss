@@ -24,3 +24,11 @@
 h1{
     background-color: pink;
 }
+
+.thumbnail {
+  width: 200px;
+  height: 100%;
+  object-fit: contain; 
+  //object-fit: cover; 
+  object-position: 40% 100%; 
+}

@@ -1,1 +1,14 @@
-<h1>出勤情報</h1>
+<div class="row">
+  <div class="col-md-12 px-0">
+    <h1>&nbsp;出勤情報</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row my-5">
+    <%= image_tag @perfomer.image.url, class: 'thumbnail'  %>
+  </div>
+  <div class="row my-5">
+    <%= "ニックネーム：#{@user.nickname}" %>
+  </div>
+</div>
