@@ -15,7 +15,7 @@ class PerformersController < ApplicationController
   end
   
   def update
-    @performer = Performer.find_by(user_id:2)
+    @performer = Performer.find_by(user_id:current_user.id)
     if @performer.update(perfomer_params)
       redirect_to request.referer
     else
