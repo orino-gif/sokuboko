@@ -13,7 +13,13 @@
 ActiveRecord::Schema.define(version: 2021_12_31_224830) do
 
   create_table "performers", primary_key: "user_id", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname"
     t.string "image"
+    t.integer "attack"
+    t.integer "age"
+    t.string "three_size"
+    t.string "identification"
+    t.string "full_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
     t.string "name", default: "", null: false
     t.string "furigana", default: "", null: false
     t.string "sex", default: "", null: false

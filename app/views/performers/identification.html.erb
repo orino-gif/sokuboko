@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12 px-0">
+    <h1>&nbsp;書類審査申請</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row my-5">
+    <%=   "1・2⃣・3" %>
+  </div>
+  <div class="row my-5">
+    <div class="col-md-7 border border-primary">
+      <%= form_with(model: @perfomer, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :"ニックネーム" %>
+          <%= f.text_field :nickname, autofocus: true, class: 'form-control' %>
+        </div>
+        
+        <%= f.hidden_field :examination, :value => "true" %>
+        
+        <div>
+          <%= submit_tag("次へ") %>
+        </div><br>
+      <% end %>
+    </div>
+  </div>
+</div>

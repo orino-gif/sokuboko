@@ -6,9 +6,14 @@
 
 <div class="container">
   <div class="row my-5">
-    <%= image_tag @perfomer.image.url, class: 'thumbnail'  %>
+    <% if @perfomer.image? %>
+      <%= image_tag @perfomer.image.url, class: 'thumbnail'  %>
+    <% end %>
   </div>
+  
   <div class="row my-5">
-    <%= "ニックネーム：#{@user.nickname}" %>
+    <button type="button">
+        <%= link_to "面接無し書類のみで登録", new_performer_path %>
+    </button>
   </div>
 </div>
