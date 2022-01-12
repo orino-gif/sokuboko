@@ -3,32 +3,47 @@ class PerformersController < ApplicationController
   def new
     if user_signed_in?
       @user = User.find(current_user.id)
-      @perfomer = Performer.find_by(user_id:@user.id)
+      @performer = Performer.find_by(user_id:@user.id)
     end
   end
 
   def show
     if user_signed_in?
       @user = User.find(current_user.id)
-      @perfomer = Performer.find_by(user_id:@user.id)
+      @performer = Performer.find_by(user_id:@user.id)
     end
   end
   
   def edit
     if user_signed_in?
       @user = User.find(current_user.id)
-      @perfomer = Performer.find_by(user_id:@user.id)
+      @performer = Performer.find_by(user_id:@user.id)
     end
+  end
+  
+  def identification
+    @user = User.find(current_user.id)
+    @performer = Performer.find_by(user_id:@user.id)
+  end
+  
+  def full_body
+    @user = User.find(current_user.id)
+    @performer = Performer.find_by(user_id:@user.id)
   end
   
   def update
     @performer = Performer.find_by(user_id:current_user.id)
     p params[:performer][:examination]
     if @performer.update(perfomer_params)
-      if "true" != params[:performer][:examination]
+      if "identification" == params[:performer][:examination]
+        redirect_to performers_identification_path
+        
+      elsif "full_body" == params[:performer][:examination]
+        @performer.progress = '審査中'
+        @performer.save
         redirect_to request.referer
       else
-        redirect_to performers_identification_path
+        redirect_to request.referer
       end
     else
       render :new
@@ -38,6 +53,6 @@ class PerformersController < ApplicationController
   private
   #ストロングパラメーター
   def perfomer_params
-    params.require(:performer).permit(:image,:nickname,:attack,:age,:three_size,:identification,:full_body)
+    params.require(:performer).permit(:image,:nickname,:attack,:age,:three_size,:identification,:full_body,:progress)
   end
 end

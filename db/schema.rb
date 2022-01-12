@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
     t.string "three_size"
     t.string "identification"
     t.string "full_body"
+    t.string "progress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

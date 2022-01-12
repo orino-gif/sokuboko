@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
   root to: 'homes#index'
+  get 'performers/identification'
+  get 'performers/full_body'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :homes, only: [:index]
   resources :tests, only: [:index]
   resources :performers, only: [:new, :show, :edit, :update]
-  get 'performers/identification'
+  
 end

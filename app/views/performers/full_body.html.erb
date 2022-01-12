@@ -6,22 +6,24 @@
 
 <div class="container">
   <div class="row my-5">
-    <%=   "1・2⃣・3" %>
+    <%=   "1・２・3⃣" %>
   </div>
   
   <div class="row my-5">
     <%= "画像：" %>
     <%= form_with(model: @performer, local: true) do |f| %>
-      <%= f.file_field :identification %>
+      <%= f.file_field :full_body %>
+      <%= f.hidden_field :examination, :value => "full_body" %>
       <%= submit_tag("登録") %>
     <% end %>
   </div>
   
   <div class="row my-5">
-    <% if @performer.identification? %>
-      <%= image_tag @performer.identification.url, class: 'thumbnail'  %>
+    <% if @performer.full_body? %>
+      <%= image_tag @performer.full_body.url, class: 'thumbnail'  %>
     <% end %>
   </div>
   
-  <%= button_to "次へ", performers_full_body_path, {method: :get}  %>
+  <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査中'}}   %>
+  
 </div>

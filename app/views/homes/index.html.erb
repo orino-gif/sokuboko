@@ -21,8 +21,8 @@
           <% end %>
           
           <div class="text-center">
-            <% if performer.user.nickname? %>
-              <span style="font-size: 12px;"><%= "ニックネーム" %></span>
+            <% if performer.nickname? %>
+              <span style="font-size: 12px;"><%= performer.nickname %></span>
             <% else %>
               <%= "プロフィール：未設定" %>
             <% end %>

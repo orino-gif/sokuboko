@@ -9,6 +9,7 @@ class CreatePerformers < ActiveRecord::Migration[5.2]
       t.string      :three_size
       t.string      :identification
       t.string      :full_body
+      t.string      :progress
       t.timestamps
     end
   end
