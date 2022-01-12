@@ -7,12 +7,12 @@
 <div class="container">
   <div class="row my-5">
     <%= "画像：" %>
-    <%= form_with(model: @perfomer, local: true) do |f| %>
+    <%= form_with(model: @performer, local: true) do |f| %>
         <%= f.file_field :image %>
         <%= submit_tag("登録") %>
       <% end %>
-    <% if @perfomer.image? %>
-      <%= image_tag @perfomer.image.url, class: 'thumbnail'  %>
+    <% if @performer.image? %>
+      <%= image_tag @performer.image.url, class: 'thumbnail'  %>
     <% end %>
   </div>
   
