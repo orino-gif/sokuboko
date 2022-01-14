@@ -11,6 +11,11 @@ class PerformersController < ApplicationController
     if user_signed_in?
       @user = User.find(current_user.id)
       @performer = Performer.find_by(user_id:@user.id)
+      if "審査中" == params[:status]
+        @performer.progress = '審査中'
+        @performer.save
+        UserMailer.progress_email(@performer).deliver_later
+      end
     end
   end
   
@@ -39,8 +44,6 @@ class PerformersController < ApplicationController
         redirect_to performers_identification_path
         
       elsif "full_body" == params[:performer][:examination]
-        @performer.progress = '審査中'
-        @performer.save
         redirect_to request.referer
       else
         redirect_to request.referer

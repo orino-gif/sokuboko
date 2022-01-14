@@ -19,13 +19,26 @@
   <div class="row my-5">
     <%= "お店用のプロフィール：" %>
     <table class="table">
-      <tr><td><%= "ニックネーム：" %></td></tr>
-      <tr><td><%= "年齢：25歳" %></td></tr>
-      <tr><td><%= "スリーサイズ: B90 W50 H80" %></td></tr>
+      <tr><td>
+        <%= form_with(model: @performer, local: true) do |f| %>
+          <%= "ニックネーム：" %><%= f.text_field :nickname ,{size:"30"}%>
+          <%= submit_tag "変更" %>
+        <% end %>
+      </td></tr>
+      <tr><td>
+        <%= form_with(model: @performer, local: true) do |f| %>
+          <%= "年齢：" %><%= f.text_field :age ,{size:"10"}%>
+          <%= submit_tag "変更" %>
+        <% end %>
+      </td></tr>
+      <tr><td>
+        <%= form_with(model: @performer, local: true) do |f| %>
+          <%= "スリーサイズ(B-W-H)：" %><%= f.text_field :three_size ,{size:"30"}%>
+          <%= submit_tag "変更" %>
+        <% end %>
+      </td></tr>
+      
       <tr><td><%= "可能な攻撃技：" %></td></tr>
-      <td><button type="button">
-        <%= link_to "変更", edit_user_registration_path %>
-      </button></td>
     </table>
   </div>
   
@@ -35,17 +48,6 @@
       <tr><td><%= "Eメール：#{@user.email}" %></td></tr>
       <tr><td><%= " パスワード: xxxxxxxxxxx" %></td></tr>
       <tr><td><%= "在籍 or 退会：在籍" %></td></tr>
-      <td><button type="button">
-        <%= link_to "変更", edit_user_registration_path %>
-      </button></td>
-    </table>
-  </div>
-  
-  <div class="row my-5">
-    <%= "本人確認書類：" %>
-    <table class="table">
-      <tr><td><%= "写真付き身分証明書：" %></td></tr>
-      <tr><td><%= "本人の全身写真：" %></td></tr>
       <td><button type="button">
         <%= link_to "変更", edit_user_registration_path %>
       </button></td>
