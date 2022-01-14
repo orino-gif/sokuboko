@@ -4,8 +4,8 @@ class UserMailer < ApplicationMailer
   def progress_email(performer)
     @performer = performer
     mail(
-        to: @performer.user.email,
-        subject: "[連絡]#{@performer.nickname}さん。書類審査を受け付けました。"
+        to: "#{@performer.user.email},orino0710@gmail.com",
+        subject: "[即ボコ女子]#{@performer.nickname}さんの書類審査を受け付けました。"
       )
   end
 end
