@@ -17,14 +17,14 @@
           <th><%= "申請状態" %></th>
         </tr>
         <% @users.each do |user| %>
-        <tr>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td><%= user.telephone_number %></td>
-          <td><%= user.sex %></td>
-          <td><%= user.address %></td>
-          <td><%= user.performer.progress %></td>
-        </tr>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.telephone_number %></td>
+            <td><%= user.sex %></td>
+            <td><%= user.address %></td>
+            <td><%= link_to user.performer.progress,"/tests/#{user.id}" %></td>
+          </tr>
         <% end %>
       </table>
       

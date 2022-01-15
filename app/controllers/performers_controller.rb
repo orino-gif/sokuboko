@@ -15,7 +15,6 @@ class PerformersController < ApplicationController
         @performer.progress = '審査中'
         @performer.save
         UserMailer.progress_email(@performer).deliver_later
-        
       end
     end
   end

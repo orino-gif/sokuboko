@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12 px-0">
+    <h1>&nbsp;利用者詳細</h1>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <% begin %>
+      <table border=”1″>
+        <tr>
+          <th><%= "ニックネーム" %></th>
+          <th><%= "歳" %></th>
+          <th><%= "スリーサイズ" %></th>
+          <th><%= "身分証明写真" %></th>
+          <th><%= "全身写真" %></th>
+        </tr>
+          <tr>
+            <td><%= @user.performer.nickname %></td>
+            <td><%= @user.performer.age %></td>
+            <td><%= @user.performer.three_size %></td>
+            <td>
+              <% if @user.performer.full_body? %>
+                <%= image_tag @user.performer.identification.url, class: 'thumbnail' %>
+              <% end %>
+            </td>
+            <td>
+              <% if @user.performer.full_body? %>
+                <%= image_tag @user.performer.full_body.url, class: 'thumbnail' %>
+              <% end %>
+            </td>
+            <td><%= @user.performer.progress %></td>
+            <td>
+              <%= button_to "入店許可", "/tests/#{@user.id}", {method: :get, params:{status: '入店'}}   %>
+            </td>
+          </tr>
+      </table>
+      
+    <% rescue => e %>
+      <%= p e %>
+    <% end %>
+  </div>
+</div>
