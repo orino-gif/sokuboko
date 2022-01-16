@@ -16,6 +16,8 @@ class PerformersController < ApplicationController
         @performer.save
         UserMailer.progress_email(@performer).deliver_later
       end
+    else
+      @user = User.find(params[:id])
     end
   end
   
