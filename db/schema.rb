@@ -15,12 +15,24 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
   create_table "performers", primary_key: "user_id", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
     t.string "image"
-    t.integer "attack"
+    t.text "attack"
     t.integer "age"
     t.string "three_size"
     t.string "identification"
     t.string "full_body"
     t.string "progress"
+    t.time "sun_start"
+    t.time "tue_start"
+    t.time "wed_start"
+    t.time "thu_start"
+    t.time "fri_start"
+    t.time "sat_start"
+    t.time "sun_end"
+    t.time "tue_end"
+    t.time "wed_end"
+    t.time "thu_end"
+    t.time "fri_end"
+    t.time "sat_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

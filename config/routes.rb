@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'opinion/index'
   get 'masters/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',

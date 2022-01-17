@@ -5,7 +5,7 @@ class TestsController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    if "入店" == params[:status]
+    if '入店' == params[:status]
       @user.performer.progress = '入店'
       @user.performer.save
     end

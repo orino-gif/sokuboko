@@ -9,11 +9,24 @@
     <% if @user.performer.image? %>
       <%= image_tag @user.performer.image.url, class: 'thumbnail'  %>
     <% end %>
-  </div>
-  
-  <div class="row my-5">
+    
     <% if '審査中' == @user.performer.progress %>
       <%= @user.performer.nickname+"さん書類審査中" %>
+    <% elsif '入店' == @user.performer.progress %>
+      <div class="col"><br>
+        <font size="10px"><%= @user.performer.nickname+"さんの攻撃技：" %><p>ビンタ、金蹴り、膝蹴り、お尻ぺんぺん、金玉握り、膝金、電気あんま、手錠拘束、拘束シコシコ尋問、
+        チョークスリーパー、腕十字固め、踏みつけ、おしっこぶっかけ、金玉殴り、ちんぽビンタ、人間マット、太もも締め</p></font>
+        <%= "出勤可能日時："%><br>
+        <table class="table">
+          <tr>
+            <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
+          </tr>
+          <tr>
+            <td>18:00～24:00</td><td>定休日</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td>
+          </tr>
+        </table>
+      </div>
+      
     <% else %>
       <button type="button">
         <%= link_to "書類審査申請", new_performer_path %>
