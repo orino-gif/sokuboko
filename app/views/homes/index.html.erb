@@ -13,18 +13,23 @@
   <div class="row">
     <% begin %>
       <% @performers.each do |performer| %>
-        <div class="col-md-auto">
-          <% if performer.image? %>
-            <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-          <% end %>
-          
-          <div class="text-center">
-            <% if performer.nickname? %>
-              <span style="font-size: 12px;"><%= performer.nickname %></span><br>
-              <span style="font-size: 12px;"><%= "18:00～24:00"%></span>
+      　<% if '入店' == performer.progress %>
+          <div class="col-md-auto">
+            <% if performer.image? %>
+              <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
+            <% else %>
+              <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
             <% end %>
+            
+            <div class="text-center">
+              <% if performer.nickname? %>
+                <span style="font-size: 12px;"><%= performer.nickname %></span><br>
+                
+                <span style="font-size: 12px;"><%= "18:00～24:00"%></span>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% rescue => e %>
       <%= p e %>

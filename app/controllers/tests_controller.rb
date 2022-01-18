@@ -8,6 +8,9 @@ class TestsController < ApplicationController
     if '入店' == params[:status]
       @user.performer.progress = '入店'
       @user.performer.save
+    elsif '退店' == params[:status]
+      @user.performer.progress = '退店'
+      @user.performer.save
     end
   end
 end
