@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 px-0">
-    <h1>&nbsp;出勤スケジュール</h1>
+    <h1>&nbsp;女子のプロフィール</h1>
   </div>
 </div>
 
@@ -20,8 +20,7 @@
         <% else %>
           <%= link_to image_tag("/img/pending.png", class: 'thumbnail') %>
         <% end %>
-
- 
+        
         <font size="5px"><%= @user.performer.nickname+"さんの攻撃技：" %><p></p></font>
         <%= "出勤可能日時："%><br>
         <table class="table">
@@ -29,10 +28,15 @@
             <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
           </tr>
           <tr>
-            <td>18:00～24:00</td><td>定休日</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td><td>18:00～24:00</td>
+            <td><%= schedule(@user.performer.sun_start.strftime('%H:%M'),@user.performer.sun_end.strftime('%H:%M')) %></td>
+            <td>定休日</td>
+            <td><%= schedule(@user.performer.tue_start.strftime('%H:%M'),@user.performer.tue_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.wed_start.strftime('%H:%M'),@user.performer.wed_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.thu_start.strftime('%H:%M'),@user.performer.thu_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.fri_start.strftime('%H:%M'),@user.performer.fri_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'),@user.performer.sat_end.strftime('%H:%M')) %></td>
           </tr>
         </table>
-
       
     <% else %>
       <button type="button">
