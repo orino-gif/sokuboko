@@ -10,7 +10,10 @@
   </div>
   
   <div class="row my-5">
-    <%= "画像：" %>
+    <%= "全身写真(全身が分かる写真)：" %>
+  </div>
+  
+  <div class="row my-5">
     <%= form_with(model: @performer, local: true) do |f| %>
       <%= f.file_field :full_body %>
       <%= f.hidden_field :examination, :value => "full_body" %>
@@ -24,6 +27,6 @@
     <% end %>
   </div>
   
-  <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査中'}}   %>
+  <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査依頼'}}   %>
   
 </div>

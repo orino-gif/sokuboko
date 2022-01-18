@@ -11,7 +11,8 @@
     <% end %>
     
     <% if '審査中' == @user.performer.progress %>
-      <%= @user.performer.nickname+"さんの書類を審査中" %>
+      <%= @user.performer.nickname+"さんの書類を審査中" %><br>
+      <%= "審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。" %>
     <% elsif '入店' == @user.performer.progress %>
         <%= "画像：" %>
         <% if @user.performer.image? %>

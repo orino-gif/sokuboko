@@ -10,7 +10,10 @@
   </div>
   
   <div class="row my-5">
-    <%= "画像：" %>
+    <%= "本人確認書類(免許書、個人ナンバーカード、学生証※写真付きで住所が確認できる書類の画像)：" %>
+  </div>
+  
+  <div class="row my-5">
     <%= form_with(model: @performer, local: true) do |f| %>
       <%= f.file_field :identification %>
       <%= submit_tag("登録") %>
