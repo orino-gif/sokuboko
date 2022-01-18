@@ -22,7 +22,7 @@
       <table class="table">
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "ニックネーム：" %><%= f.text_field :nickname ,{size:"30"} %>
+            <%= "ニックネーム：" %><%= f.text_field :nickname , {size:"30"} %>
             <%= submit_tag "変更" %>
           <% end %>
         </td></tr>
@@ -40,20 +40,20 @@
         </td></tr>
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "可能な攻撃技：" %><%= f.text_area :attack ,{size:"80x10"} %>
+            <%= "可能な攻撃技：" %><%= f.text_area :attack ,{value: 'ビンタ、金蹴り、膝蹴り、お尻ぺんぺん、金玉握り、膝金、電気あんま、手錠拘束、拘束シコシコ尋問、チョークスリーパー、腕十字固め、踏みつけ、金玉殴り、ちんぽビンタ、人間マット、太もも締め',size:"60x8"} %>
             <%= submit_tag "変更" %>
           <% end %>
         </td></tr>
         
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "可能な日時(定休日 月曜日、店営業18:00～24:00、休暇 00:00～00:00)：" %><br>
-            <%= "　日曜日　" %><%= f.time_select  :sun_start , class: 'form-control' %><%="～" %><%= f.time_select  :sun_end , class: 'form-control' %><br>
-            <%= "　火曜日　" %><%= f.time_select  :tue_start , class: 'form-control' %><%="～" %><%= f.time_select  :tue_end , class: 'form-control' %><br>
-            <%= "　水曜日　" %><%= f.time_select  :wed_start , class: 'form-control' %><%="～" %><%= f.time_select  :wed_end , class: 'form-control' %><br>
-            <%= "　木曜日　" %><%= f.time_select  :thu_start , class: 'form-control' %><%="～" %><%= f.time_select  :thu_end , class: 'form-control' %><br>
-            <%= "　金曜日　" %><%= f.time_select  :fri_start , class: 'form-control' %><%="～" %><%= f.time_select  :fri_end , class: 'form-control' %><br>
-            <%= "　土曜日　" %><%= f.time_select  :sat_start , class: 'form-control' %><%="～" %><%= f.time_select  :sat_end , class: 'form-control' %>
+            <%= "可能な日時(定休日 月曜日、店営業18:00～24:00、休暇 [空白]～[空白])：" %><br>
+            <%= "　日曜日　" %><%= f.time_select  :sun_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :sun_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　火曜日　" %><%= f.time_select  :tue_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :tue_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　水曜日　" %><%= f.time_select  :wed_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :wed_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　木曜日　" %><%= f.time_select  :thu_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :thu_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　金曜日　" %><%= f.time_select  :fri_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :fri_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　土曜日　" %><%= f.time_select  :sat_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :sat_end ,include_blank: true, class: 'form-control' %>
             <%= f.submit "変更" %>
           <% end %>
         </td></tr>

@@ -24,6 +24,7 @@ class PerformersController < ApplicationController
   def edit
     if user_signed_in?
       @user = User.find(current_user.id)
+      @title = "default form value"
       #@performer = Performer.find_by(user_id:@user.id)
     end
   end
