@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'opinion/index'
-  get 'masters/index'
+
+  get 'opinions/terms'
+  get 'opinions/policy'
+  get 'opinions/transaction'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -8,6 +11,7 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   get 'performers/identification'
   get 'performers/full_body'
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :homes, only: [:index]
   resources :tests, only: [:index,:show]
