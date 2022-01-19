@@ -5,8 +5,10 @@
 </div>
 
 <div class="container">
-  <div class="row my-5">
+  
+    
     <% if '審査中' == @user.performer.progress %>
+    <div class="row my-5">
       <%= @user.performer.nickname+"さんの書類を審査中" %><br>
       <%= "審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。" %>
     <% elsif '入店' == @user.performer.progress %>
@@ -38,13 +40,18 @@
           <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
         </tr>
       </table>
-      
+    </div>  
     <% else %>
+    <div class="row my-5">
+      <font size="5px"><%= "面接不要の書類審査を通過後に表示されます"%></font>
+    </div>
+    <div class="row my-5">
       <button type="button">
         <%= link_to "書類審査申請", new_performer_path %>
       </button>
+    </div>
     <% end %>
     
-    </div>
+  
   
 </div>
