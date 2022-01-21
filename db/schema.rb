@@ -21,18 +21,18 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
     t.string "identification"
     t.string "full_body"
     t.string "progress"
-    t.time "sun_start"
-    t.time "tue_start"
-    t.time "wed_start"
-    t.time "thu_start"
-    t.time "fri_start"
-    t.time "sat_start"
-    t.time "sun_end"
-    t.time "tue_end"
-    t.time "wed_end"
-    t.time "thu_end"
-    t.time "fri_end"
-    t.time "sat_end"
+    t.time "sun_start", default: "2000-01-01 00:00:00", null: false
+    t.time "tue_start", default: "2000-01-01 00:00:00", null: false
+    t.time "wed_start", default: "2000-01-01 00:00:00", null: false
+    t.time "thu_start", default: "2000-01-01 00:00:00", null: false
+    t.time "fri_start", default: "2000-01-01 00:00:00", null: false
+    t.time "sat_start", default: "2000-01-01 00:00:00", null: false
+    t.time "sun_end", default: "2000-01-01 00:00:00", null: false
+    t.time "tue_end", default: "2000-01-01 00:00:00", null: false
+    t.time "wed_end", default: "2000-01-01 00:00:00", null: false
+    t.time "thu_end", default: "2000-01-01 00:00:00", null: false
+    t.time "fri_end", default: "2000-01-01 00:00:00", null: false
+    t.time "sat_end", default: "2000-01-01 00:00:00", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

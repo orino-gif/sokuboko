@@ -10,18 +10,18 @@ class CreatePerformers < ActiveRecord::Migration[5.2]
       t.string      :identification
       t.string      :full_body
       t.string      :progress
-      t.time        :sun_start
-      t.time        :tue_start
-      t.time        :wed_start
-      t.time        :thu_start
-      t.time        :fri_start
-      t.time        :sat_start
-      t.time        :sun_end
-      t.time        :tue_end
-      t.time        :wed_end
-      t.time        :thu_end
-      t.time        :fri_end
-      t.time        :sat_end
+      t.time        :sun_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :tue_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :wed_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :thu_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :fri_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :sat_start  , null: false, default: "2022/1/1 00:00"
+      t.time        :sun_end    , null: false, default: "2022/1/1 00:00" 
+      t.time        :tue_end    , null: false, default: "2022/1/1 00:00"
+      t.time        :wed_end    , null: false, default: "2022/1/1 00:00"
+      t.time        :thu_end    , null: false, default: "2022/1/1 00:00"
+      t.time        :fri_end    , null: false, default: "2022/1/1 00:00"
+      t.time        :sat_end    , null: false, default: "2022/1/1 00:00"
 
       t.timestamps
     end
