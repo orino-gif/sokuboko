@@ -8,16 +8,12 @@ class PerformersController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @user = User.find(current_user.id)
-      @performer = Performer.find_by(user_id:@user.id)
-      if "審査依頼" == params[:status]
-        @performer.progress = '審査中'
-        @performer.save
-        UserMailer.progress_email(@performer).deliver_later
-      end
-    else
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
+    @performer = Performer.find_by(user_id:@user.id)
+    if "審査依頼" == params[:status]
+      @performer.progress = '審査中'
+      @performer.save
+      UserMailer.progress_email(@performer).deliver_later
     end
   end
   
