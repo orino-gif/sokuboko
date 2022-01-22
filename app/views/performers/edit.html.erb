@@ -57,6 +57,13 @@
             <%= f.submit "変更" %>
           <% end %>
         </td></tr>
+        
+        <tr><td>
+          <%= form_with(model: @user.performer, local: true) do |f| %>
+            <%= "SNSリンク先：" %><%= f.text_field :sns ,{size:"30"} %>
+            <%= submit_tag "変更" %>
+          <% end %>
+        </td></tr>
       </table>
     </div>
   <% end %>

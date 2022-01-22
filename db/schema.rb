@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
     t.string "identification"
     t.string "full_body"
     t.string "progress"
+    t.string "sns"
     t.time "sun_start", default: "2000-01-01 00:00:00", null: false
     t.time "tue_start", default: "2000-01-01 00:00:00", null: false
     t.time "wed_start", default: "2000-01-01 00:00:00", null: false
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "accepted", default: false, null: false
+    t.integer "trade", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -10,6 +10,7 @@ class CreatePerformers < ActiveRecord::Migration[5.2]
       t.string      :identification
       t.string      :full_body
       t.string      :progress
+      t.string      :sns
       t.time        :sun_start  , null: false, default: "2022/1/1 00:00"
       t.time        :tue_start  , null: false, default: "2022/1/1 00:00"
       t.time        :wed_start  , null: false, default: "2022/1/1 00:00"
