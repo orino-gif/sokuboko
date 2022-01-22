@@ -22,9 +22,10 @@
   
   <div class="row my-5">
     <% if @performer.identification? %>
-      <%= image_tag @performer.identification.url, class: 'thumbnail'  %>
+      <%= image_tag @performer.identification.url, class: 'Horizontal'  %>
     <% end %>
   </div>
-  
-  <%= button_to "次へ", performers_full_body_path, {method: :get}  %>
+  <div class="row my-5">
+    <%= button_to "次へ", performers_full_body_path, {method: :get}  %>
+  </div>
 </div>

@@ -27,6 +27,7 @@
     <% end %>
   </div>
   
-  <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査依頼'}}   %>
-  
+  <div class="row my-5">
+    <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査依頼'}}   %>
+  </div>
 </div>
