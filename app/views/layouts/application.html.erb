@@ -24,24 +24,23 @@
     <div class="container-fluid">
       
       <div class="row">
-        <div class="col-md-auto">
+        <div class="col-md-9">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-        </div>
-        
-        <div class="col-md-auto">
           <span style="font-size: 2.5em;">即ボコ女子</span>
+        </div>
+
+        <div class="col-md-3 d-flex align-items-end">
+          <span style="font-size: 1.5em;"><%= "連絡先:080-1764-0796" %></span>
         </div>
       </div>
       
       <div class="row">
-        <!-- 左寄せ --><!-- clearfixは、浮いた要素のバリア機能 -->
-        <div class="col-12 clearfix">
+        <div class="col-10 clearfix">
           <div class="float-left test-box"><span style="font-size: 1.2em;">松戸発。逆転無しのM男向けデリヘル。</span></div>
         </div>
       </div>
       
       <div class="row">
-        <!-- 右寄せ -->
         <div class="col-12 clearfix">
           <div class="float-right test-box">
             <% if user_signed_in? %>
@@ -69,7 +68,9 @@
           </div>
         </div>
       </div>
+
       
+
     </div>
   </header>
   
