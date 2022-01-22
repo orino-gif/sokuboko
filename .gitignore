@@ -34,3 +34,5 @@ vendor/bundle
 .env
 start
 /config/database.yml
+
+/config/master.key
