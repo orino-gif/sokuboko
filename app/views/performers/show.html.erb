@@ -5,12 +5,11 @@
 </div>
 
 <div class="container">
-  
-    
     <% if '審査中' == @user.performer.progress %>
     <div class="row my-5">
       <%= @user.performer.nickname+"さんの書類を審査中" %><br>
       <%= "審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。" %>
+      
     <% elsif '入店' == @user.performer.progress %>
       <div class="col-sm-3">
         <% if @user.performer.image? %>

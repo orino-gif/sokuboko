@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-9">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-          <span style="font-size: 2.5em;">即ボコ女子</span>
+          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;">　～松戸発。逆転無しのM男向けデリヘル。</span>
         </div>
 
         <div class="col-md-3 d-flex align-items-end">
@@ -36,17 +36,26 @@
       </div>
       
       <div class="row">
-        <div class="col-10 clearfix">
-          <div class="float-left test-box"><span style="font-size: 1.2em;">松戸発。逆転無しのM男向けデリヘル。</span></div>
-        </div>
-        
-        <div class="col-2 clearfix">
-          <div class="float-left test-box"><span style="font-size: 0.5em;"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
+        <div class="col-12 clearfix">
+          <div class="float-right test-box"><span style="font-size: 0.5em;"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
         </div>
       </div>
       
       <div class="row">
-        <div class="col-12 clearfix">
+        <div class="col-6 clearfix">
+          <div class="float-left test-box">
+            <button type="button" class="btn btn-light">
+              <%= link_to "プレイ内容", '/homes/new' %>
+            </button>
+            <button type="button" class="btn btn-light">
+              <%= link_to "システム料金", '/homes/show' %>
+            </button>
+            <button type="button" class="btn btn-light">
+              <%= link_to "本日のスケジュール", homes_path %>
+            </button>
+          </div>
+        </div>
+        <div class="col-6 clearfix">
           <div class="float-right test-box">
             <% if user_signed_in? %>
               <div class="right">
@@ -73,9 +82,6 @@
           </div>
         </div>
       </div>
-
-      
-
     </div>
   </header>
   
@@ -94,8 +100,9 @@
         <p><%= alert %></p>
       </div>
     <% end %>
-    
+    <div class="container-fluid">
     <%= yield %>
+    </div>
   </body>
   
   <footer class="footer">

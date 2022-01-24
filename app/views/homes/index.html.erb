@@ -1,41 +1,33 @@
 <div class="row">
   <div class="col-md-12 px-0">
-    <h1>&nbsp;トップページ</h1>
+    <h1>&nbsp;  本日のスケジュール</h1>
   </div>
 </div>
 
-<div class="container-fluid">
-  
-  <div class="row">
-    <h3>■在籍女子紹介</h3>
-  </div>
-  
-  <div class="row">
-    <% begin %>
-      <% @performers.each do |performer| %>
-      　<% if '入店' == performer.progress %>
-          <div class="col-md-auto">
-            <% if performer.image? %>
-              <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-            <% else %>
-              <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
+<div class="row">
+  <% begin %>
+    <% @performers.each do |performer| %>
+    　<% if '入店' == performer.progress %>
+        <div class="col-md-auto">
+          <% if performer.image? %>
+            <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
+          <% else %>
+            <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
+          <% end %>
+          
+          <div class="text-center">
+            <% if performer.nickname? %>
+              <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
+              <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
+              <span style="font-size: 12px;"><%= today_schedule(performer) %></span>
             <% end %>
-            
-            <div class="text-center">
-              <% if performer.nickname? %>
-                <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
-                <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
-                <span style="font-size: 12px;"><%= today_schedule(performer) %></span>
-              <% end %>
-            </div>
           </div>
-        <% end %>
+        </div>
       <% end %>
-    <% rescue => e %>
-      <%= p e %>
     <% end %>
-    
-    
-  </div>
+  <% rescue => e %>
+    <%= p e %>
+  <% end %>
 </div>
+
   
