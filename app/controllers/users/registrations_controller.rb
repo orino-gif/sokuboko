@@ -64,7 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   #ログイン後のリダイレクト先
   def after_sign_in_path_for(resource)
-    redirect_to(performer_path(@user))
+    performer_path(@user)
   end
   
   #ユーザー情報変更後のリダイレクト先

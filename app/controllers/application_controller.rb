@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
     @user=current_user
   end
   
+  #ユーザーログイン後にユーザー情報の画面へ遷移
+  def after_sign_in_path_for(resource)
+    performer_path(resource)
+  end
+  
   protected
   
   def configure_permitted_parameters

@@ -4,7 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h3>書類審査の結果、入店を許可しました</h3>
+    <h3><%=@performer.nickname %>さん。書類審査の結果、入店を許可しました</h3>
+    
+    <p>以下のリンク先よりスケジュールの設定を行ってください</p>
+    <p><%=ENV['HOME_ADDRESS'] %>/performers/<%=@performer.user_id %>/edit</p>
 
   </body>
 </html>

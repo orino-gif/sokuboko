@@ -23,7 +23,7 @@
             
             <div class="text-center">
               <% if performer.nickname? %>
-                <span style="font-size: 12px;"><%= performer.nickname %></span><br>
+                <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
                 <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
                 <span style="font-size: 12px;"><%= today_schedule(performer) %></span>
               <% end %>
