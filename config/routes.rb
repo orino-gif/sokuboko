@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'opinions/terms'
   get 'opinions/policy'
   get 'opinions/transaction'
+  get 'opinions/service'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :homes, only: [:index,:show,:new]
