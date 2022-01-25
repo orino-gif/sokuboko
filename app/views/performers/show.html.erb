@@ -23,8 +23,8 @@
         <font size="5px"><%= @user.performer.nickname+"さんの攻撃技：" %><p class="bg-white"><%= @user.performer.attack %></p></font>
       </div>
     </div>
-    
-    <div class="row my-5">
+
+    <div class="container">
       <table class="table">
         <tr>
           <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
@@ -39,7 +39,8 @@
           <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
         </tr>
       </table>
-    </div>  
+    </div>
+
     <% else %>
     <div class="row my-5">
       <font size="5px"><%= "面接不要の書類審査を通過後に表示されます"%></font>
