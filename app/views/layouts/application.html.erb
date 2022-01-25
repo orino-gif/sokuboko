@@ -105,7 +105,14 @@
     </div>
   </body>
   
-  <footer class="footer">
+  <% if nil != @certification %>
+    <% if 'orino0710@gmail.com' == @certification.email %>
+      <footer class="footer color_red">
+    <% else %>
+      <footer class="footer color_pink">
+    <% end %>
+  <% end %>
+  
     <div class="container-fluid clearfix">
       <div class="row mx-5 my-3">
         <div class="mx-3"><%= link_to '利用規約', opinions_terms_path %></div>

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   
   def layouts_value
     @user=current_user
+    if user_signed_in?
+      @certification = User.find(current_user.id)
+    end
   end
   
   #ユーザーログイン後にユーザー情報の画面へ遷移
