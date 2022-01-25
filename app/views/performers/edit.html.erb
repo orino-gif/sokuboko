@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-  <% if 'orino0710@gmail.com' == @user.email %>
+  <% if 'orino0710@gmail.com' == @certification.email %>
     <div class="row my-5">
       <%= "画像：" %>
       <%= form_with(model: @user.performer, local: true) do |f| %>

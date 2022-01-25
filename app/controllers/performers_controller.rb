@@ -19,10 +19,9 @@ class PerformersController < ApplicationController
   
   def edit
     if user_signed_in?
-      @user = User.find(current_user.id)
-      @title = "default form value"
-      #@performer = Performer.find_by(user_id:@user.id)
+      @certification = User.find(current_user.id)
     end
+    @user = User.find(params[:id])
   end
   
   def identification
