@@ -5,18 +5,9 @@
 </div>
 
 <div class="container">
+  
   <% if 'orino0710@gmail.com' == @certification.email %>
-    <div class="row my-5">
-      <%= "画像：" %>
-      <%= form_with(model: @user.performer, local: true) do |f| %>
-        <%= f.file_field :image %>
-        <%= submit_tag("登録") %>
-      <% end %>
-      
-      <% if @user.performer.image? %>
-        <%= image_tag @user.performer.image.url, class: 'thumbnail'  %>
-      <% end %>
-    </div>
+
     
     <div class="row my-5">
       <%= "お店用のプロフィール：" %>
@@ -46,10 +37,26 @@
           <% end %>
         </td></tr>
       </table>
+    </div>  
+    
+    <div class="row my-5">
+      <%= "画像：" %>
+      <%= form_with(model: @user.performer, local: true) do |f| %>
+        <%= f.file_field :image %>
+        <%= submit_tag("登録") %>
+      <% end %>
     </div>
+    
   <% end %>
       
   <% if '女' == @user.sex %>
+    <div class="row my-5">
+      <% if @user.performer.image? %>
+        <%= image_tag @user.performer.image.url, class: 'thumbnail'  %>
+      <% else %>
+        <%= image_tag("/img/pending.png", class: 'thumbnail') %>
+      <% end %>
+    </div>
     <div class="row my-5">
       <%= "週間スケジュール：" %>
       <table>
