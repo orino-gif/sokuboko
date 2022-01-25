@@ -19,7 +19,7 @@
             <% if performer.nickname? %>
               <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
               <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
-              <span style="font-size: 12px;"><%= today_schedule(performer) %></span>
+              <span style="font-size: 12px;"><%= "本日 " + today_schedule(performer) %></span>
             <% end %>
           </div>
         </div>
