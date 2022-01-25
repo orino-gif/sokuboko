@@ -57,4 +57,6 @@ class PerformersController < ApplicationController
     params.require(:performer).permit(:image,:nickname,:attack,:age,:three_size,:identification,:full_body,:progress,
      :sun_start,:sun_end,:tue_start,:tue_end,:wed_start,:wed_end,:thu_start,:thu_end,:fri_start,:fri_end,:sat_start,:sat_end)
   end
+  
+  
 end
