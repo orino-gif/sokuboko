@@ -35,7 +35,14 @@ class PerformersController < ApplicationController
   end
   
   def update
-    @performer = Performer.find_by(user_id:current_user.id)
+    @certification = User.find(current_user.id)
+    if 'orino0710@gmail.com' == @certification.email
+      @performer = Performer.find_by(params[:id])
+    else
+      @performer = Performer.find_by(user_id:current_user.id)
+    end
+    
+    p @performer.nickname
     p params[:performer][:examination]
     if @performer.update(perfomer_params)
       if "identification" == params[:performer][:examination]
