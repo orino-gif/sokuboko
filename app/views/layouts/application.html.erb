@@ -105,12 +105,10 @@
     </div>
   </body>
   
-  <% if nil != @certification %>
-    <% if 'orino0710@gmail.com' == @certification.email %>
-      <footer class="footer color_red">
-    <% else %>
-      <footer class="footer color_pink">
-    <% end %>
+  <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
+    <footer class="footer color_red">
+  <% else %>
+    <footer class="footer color_pink">
   <% end %>
   
     <div class="container-fluid clearfix">

@@ -6,7 +6,7 @@
 
 <div class="container">
   <% if nil != @user %>
-    <% if 'orino0710@gmail.com' == @user.email %>
+    <% if ENV['ADMINISTRATOR_MAIL'] == @user.email %>
       <div class="row">
         <% begin %>
           <table border=”1″>
