@@ -22,6 +22,7 @@ class PerformersController < ApplicationController
       @certification = User.find(current_user.id)
     end
     @user = User.find(params[:id])
+    
   end
   
   def identification
@@ -37,7 +38,7 @@ class PerformersController < ApplicationController
   def update
     @certification = User.find(current_user.id)
     if ENV['ADMINISTRATOR_MAIL'] == @certification.email
-      @performer = Performer.find_by(params[:id])
+      @performer = Performer.find(params[:id])
     else
       @performer = Performer.find_by(user_id:current_user.id)
     end
