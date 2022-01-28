@@ -62,7 +62,7 @@
       <table>
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "可能な日時(定休日 月曜日、店営業18:00～00:00、休暇 00:00～00:00 or [空白]～[空白])：" %><br>
+            <%= "可能な日時(定休日 月曜日、店営業18:00～00:00、休暇 00:00～00:00 :" %><br>
             <%= "　日曜日　" %><%= f.time_select  :sun_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :sun_end ,include_blank: true, class: 'form-control' %><br>
             <%= "　火曜日　" %><%= f.time_select  :tue_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :tue_end ,include_blank: true, class: 'form-control' %><br>
             <%= "　水曜日　" %><%= f.time_select  :wed_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :wed_end ,include_blank: true, class: 'form-control' %><br>
