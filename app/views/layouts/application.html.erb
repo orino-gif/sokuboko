@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sokuboko</title>
+    <title>松戸デリヘル風俗店 | M男向けのソフトSM</title>
     
     <!--integrity:html検証,crossorigin:ユーザー認証情報anonymous(不要)-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,6 +14,8 @@
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="description" content="松戸発のM男向けデリヘル風俗店！女の子からあらゆるエッチな格闘技をその身に受けて昇天させられます。最安値11000円です。ぜひ、お楽しみください。">
+    <meta name="keywords" content="デリヘル,デリバリーヘルス,風俗,松戸">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -26,11 +28,11 @@
       <div class="row">
         <div class="col-md-9">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;">　～松戸発。逆転無しのM男向けデリヘル。</span>
+          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;"><strong>～松戸発。逆転無しのM男向けデリヘル。</strong>　</span>
         </div>
 
         <div class="col-md-3 d-flex align-items-end">
-          <p style="font-size: 1.1em;">営業時間 昼14:00～ 深夜2:00<br>
+          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>
           連絡先:080-1764-0796</p>
         </div>
       </div>
@@ -122,6 +124,10 @@
         <div class="mx-3"><%= link_to '利用規約', opinions_terms_path %></div>
         <div class="mx-3"><%= link_to 'プライバシーポリシー', opinions_policy_path %></div>
         <div class="mx-3"><%= link_to '特定商取引法に基づく表記', opinions_transaction_path %></div>
+      </div>
+      <div class="row mx-5 my-3">
+        <div class="mx-3"><%= link_to 'ご意見板', opinions_terms_path %></div>
+        <div class="mx-3"><%= link_to '松戸風俗情報', opinions_policy_path %></div>
       </div>
       <div class="row mx-5 my-2">
         <div class="col-12 clearfix">
