@@ -4,30 +4,32 @@
   </div>
 </div>
 
-<div class="row">
-  <% begin %>
-    <% @performers.each do |performer| %>
-    　<% if '入店' == performer.progress %>
-        <div class="col-md-auto">
-          <% if performer.image? %>
-            <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-          <% else %>
-            <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-          <% end %>
-          
-          <div class="text-center">
-            <% if performer.nickname? %>
-              <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
-              <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
-              <span style="font-size: 12px;"><%= "本日 " + today_schedule(performer) %></span>
+<div class="container">
+  <div class="row my-5">
+    <% begin %>
+      <% @performers.each do |performer| %>
+      　<% if '入店' == performer.progress %>
+          <div class="col-md-auto">
+            <% if performer.image? %>
+              <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
+            <% else %>
+              <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
             <% end %>
+            
+            <div class="text-center">
+              <% if performer.nickname? %>
+                <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
+                <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
+                <span style="font-size: 12px;"><%= "本日 " + today_schedule(performer) %></span>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
+    <% rescue => e %>
+      <%= p e %>
     <% end %>
-  <% rescue => e %>
-    <%= p e %>
-  <% end %>
+  </div>
 </div>
 
   
