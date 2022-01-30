@@ -89,7 +89,7 @@
   </header>
   
   <body>
-    <% if (Rails.env.production?) && (controller.controller_name != "cards") && (controller.controller_name != "registrations") %>
+    <% if (Rails.env.production?) && (controller.controller_name != "registrations") %>
       <script src="//accaii.com/orino/script.js" async></script><noscript><img src="//accaii.com/orino/script?guid=on"></noscript>
     <% end %>
     <%# フラッシュ追加%>
