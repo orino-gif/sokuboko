@@ -1,3 +1,5 @@
+<% content_for(:html_title) { '在籍女子｜即ボコ女子松戸店' } %>
+
 <div class="row">
   <div class="col-md-12 px-0">
     <h1>&nbsp;  在籍女子</h1>
@@ -16,7 +18,7 @@
               <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
             <% end %>
             
-            <div class="text-center">
+            <div class="col-md-auto text-center">
               <% if performer.nickname? %>
                 <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
                 <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>

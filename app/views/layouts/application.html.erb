@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>松戸デリヘル風俗店 | M男向けのソフトSM</title>
+    <title>
+      <%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸デリヘル風俗店。内容はソフトSMになります。
+    </title>
+    
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     
     <!--integrity:html検証,crossorigin:ユーザー認証情報anonymous(不要)-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -28,23 +32,22 @@
       <div class="row">
         <div class="col-md-9">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;"><strong>～松戸発。逆転無しのM男向けデリヘル。</strong>　</span>
+          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル。</strong></span>
         </div>
-
+        
         <div class="col-md-3 d-flex align-items-end">
-          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>
-          連絡先:080-1764-0796</p>
+          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>連絡先:080-1764-0796</p>
         </div>
       </div>
       
       <div class="row">
-        <div class="col-12 clearfix">
-          <div class="float-right test-box"><span style="font-size: 0.5em;"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
+        <div class="col-11">
+          <div class="float-right"><span style="font-size: 0.5em;"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
         </div>
       </div>
       
       <div class="row">
-        <div class="col-6 clearfix">
+        <div class="col-6">
           <div class="float-left test-box">
             <button type="button" class="btn btn-light">
               <%= link_to "プレイ内容", '/homes/new' %>
@@ -60,7 +63,8 @@
             </button>
           </div>
         </div>
-        <div class="col-6 clearfix">
+        
+        <div class="col-6">
           <div class="float-right test-box">
             <% if user_signed_in? %>
               <div class="right">
