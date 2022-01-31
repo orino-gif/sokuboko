@@ -1,14 +1,11 @@
-<% content_for(:html_title) { '在籍女子｜即ボコ女子松戸店' } %>
+<% content_for(:html_title) { '在籍中の女子を紹介' } %>
 
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;  在籍女子</h1>
-  </div>
-</div>
+<h1>在籍女子</h1>
 
 <div class="container">
-  <div class="row my-5">
-    <% begin %>
+  <div class="row my-5"><!-- 縦のマージンが0～5の内の5(要素の基本サイズ*3) -->
+    <% begin #例外が起きた場合は何もしない %>
+    
       <% @performers.each do |performer| %>
       　<% if '入店' == performer.progress %>
           <div class="col-md-auto">
@@ -20,16 +17,18 @@
             
             <div class="col-md-auto text-center">
               <% if performer.nickname? %>
-                <span style="font-size: 12px;"><%= performer.nickname + " (#{performer.age.to_s})" %></span><br>
-                <span style="font-size: 12px;"><%= "B-W-H: " + performer.three_size %></span><br>
-                <span style="font-size: 12px;"><%= "本日 " + today_schedule(performer) %></span>
+                <span class="small">
+                  <%= performer.nickname + " (#{performer.age.to_s})" %><br>
+                  <%= "B-W-H: " + performer.three_size %><br>
+                  <%= "本日 " + today_schedule(performer) %>
+                </span>
               <% end %>
             </div>
           </div>
         <% end %>
       <% end %>
+      
     <% rescue => e %>
-      <%= p e %>
     <% end %>
   </div>
 </div>

@@ -5,7 +5,7 @@ module HomesHelper
     when 0 then
       schedule(performer.sun_start.strftime('%H:%M'),performer.sun_end.strftime('%H:%M'))
     when 1 then
-      p "本日 定休日"
+      p "定休日"
     when 2 then
       schedule(performer.tue_start.strftime('%H:%M'),performer.tue_end.strftime('%H:%M'))
     when 3 then

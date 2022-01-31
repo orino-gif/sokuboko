@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>
-      <%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗店。即ボコ女子松戸店。
-    </title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗店!! 即ボコ女子松戸店!!</title>
     
     <!--スマホ対応-->
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
@@ -33,19 +31,19 @@
       <!--トップ表示-->
       <div class="row">
         <div class="col-md-9">
-          <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-          <span style="font-size: 2.5em;"><strong>即ボコ女子</strong></span>
-          <span style="font-size: 0.9em;">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル。</strong></span>
+          <%= link_to image_tag('symbol.png',class: 'headericon'),  homes_path %>
+          <span class="x-large"><strong>即ボコ女子</strong></span>
+          <span class="small">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル</strong>。</span>
         </div>
         
         <div class="col-md-3 d-flex align-items-end">
-          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>連絡先: 080-1764-0796</p>
+          <span class="medium">営業時間 昼14:00～ 翌2:00<br>連絡先: 080-1764-0796</span>
         </div>
       </div>
       
       <div class="row">
         <div class="col-11">
-          <div class="float-right"><span style="font-size: 0.5em;"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
+          <div class="float-right"><span class="x-small"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
         </div>
       </div>
       
@@ -77,35 +75,29 @@
   </header>
   
   <body>
-    <%# アクセス研究所 %>
-    <% if (Rails.env.production?) && (controller.controller_name != "registrations") %>
+    <% if (Rails.env.production?) && (controller.controller_name != "registrations") # アクセス解析 %>
       <script src="//accaii.com/rino/script.js" async></script><noscript><img src="//accaii.com/rino/script?guid=on"></noscript>
     <% end %>
-    
-    <%# フラッシュ表示%>
-    <% if notice.present? %>
-      <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <p><%= notice %></p>
-      </div>
-    <% end %>
-    
-    <%# アラート表示%>
-    <% if alert.present? %>
-      <div class="alert alert-dismissable alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <p><%= alert %></p>
-      </div>
-    <% end %>
-    
-    <%# コンテンツ内容表示%>
-    <%= yield %>
 
+    <% if notice.present? #フラッシュ表示 %>
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button><p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert.present? #アラート表示 %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button><p><%= alert %></p>
+      </div>
+    <% end %>
+    
+    <%= yield %><%# コンテンツ内容表示%>
   </body>
   
   <!-- フッダー -->
-  <%# 管理者権限の場合にフッダーの色を赤色に変更 %>
-  <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
+  <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email # 管理者権限の場合にフッダーの色を赤色に変更 %>
+    <!-- 管理者用ページ -->
+    <a href= "/tests">管理者用のページへ</a>
     <footer class="footer color_red">
   <% else %>
     <footer class="footer color_pink">
@@ -113,21 +105,20 @@
   
     <!-- フッダーリンク -->
     <div class="container-fluid">
-      <div class="row mx-5 my-3">
+      <div class="row mx-5 mt-3">
         <div class="mx-3"><%= link_to '利用規約', opinions_terms_path %></div>
         <div class="mx-3"><%= link_to 'プライバシーポリシー', opinions_policy_path %></div>
         <div class="mx-3"><%= link_to '特定商取引法に基づく表記', opinions_transaction_path %></div>
       </div>
       
-      <div class="row mx-5 my-3">
+      <div class="row mx-5 mt-1">
         <div class="mx-3"><%= link_to 'ご意見板', opinions_terms_path %></div>
         <div class="mx-3"><%= link_to '松戸風俗情報', opinions_policy_path %></div>
       </div>
       
       <div class="row mx-5 my-2">
         <div class="col-12">
-          <!-- 管理者用隠しリンク -->
-          <span style="font-size: 0.1em;"><a href= "/tests" class="hid">'</a></span>
+          
           
           <div class="float-right"><p>© 2021 即ボコ女子松戸店</p></div>
         </div>

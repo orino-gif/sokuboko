@@ -17,57 +17,32 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
- .icon {
-   width: 60px;
-   height: 60px;
-}
-h1{
-    background-color: pink;
-}
+//見出しのデザイン
+h1{ background-color: pink; padding: 0.2em 0.8em; }
 
-.thumbnail {
-  width: 200px;
-  height: 300px;
-  object-fit: contain; 
-  //object-fit: cover; 
-  object-position: 40% 100%; 
-}
+//文字の大きさを定義
+span.x-small { font-size: 0.5em; }
+span.small { font-size: 0.9em; }
+span.medium { font-size: 1.1em; }
+span.large { font-size: 1.2em; }
+span.x-large { font-size: 2.5em; }
 
-.illustrated {
-  width: 350px;
-  height: 350px;
-  object-fit: contain; 
-  //object-fit: cover; 
-  object-position: 40% 100%; 
-}
-strong{
-  font-weight:normal;
-}
+//ストロングタグの太字をを無効化
+strong{ font-weight:normal; }
 
-.Horizontal {
-  width: 300px;
-  height: 200px;
-  object-fit: contain; 
-  //object-fit: cover; 
-  object-position: 40% 100%; 
-}
-.color_pink{
-background-color: pink;
-}
-.color_red{
-background-color: red;
-}
-a{
-  color: maroon;
-  text-decoration: none !important;
-}
-.hid
-{
-  color: pink;
-}
+//画像大きさ調整
+img.headericon { width: 60px; height: 60px; } //ヘッダーアイコン画像
+img.thumbnail { width: 200px; height: 300px; } //サムネイル画像
+img.illustrated { width: 350px; height: 350px; } //プレイ画像
+img.Horizontal { width: 300px; height: 200px; } //証明書用の横長画像
 
-.inner{
-  width: 80%;
-  margin: 0 auto;
-  max-width: 600px;
-}
+//フッダーのカラー
+.color_pink{background-color: pink;} //一般ユーザー用の色
+.color_red{background-color: red;} //管理者用の色
+
+//aタグのディフォルト設定を変更：色変更、下線装飾無し(!importantで優先順位を上げる)
+a{ color: maroon; text-decoration: none !important; }
+
+//店からの説明用の枠：ページと文字を中央寄せ
+div.inner{ width: 80%; margin: 0 auto; max-width: 600px; }
+
