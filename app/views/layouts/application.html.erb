@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>
-      <%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸デリヘル風俗店。内容はソフトSMになります。
+      <%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗店。即ボコ女子松戸店。
     </title>
     
+    <!--スマホ対応-->
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     
     <!--integrity:html検証,crossorigin:ユーザー認証情報anonymous(不要)-->
@@ -29,14 +30,16 @@
   <header>
     <div class="container-fluid">
       
+      <!--トップ表示-->
       <div class="row">
         <div class="col-md-9">
           <%= link_to image_tag('symbol.png',class: 'icon'),  homes_path %>
-          <span style="font-size: 2.5em;">即ボコ女子</span><span style="font-size: 0.9em;">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル。</strong></span>
+          <span style="font-size: 2.5em;"><strong>即ボコ女子</strong></span>
+          <span style="font-size: 0.9em;">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル。</strong></span>
         </div>
         
         <div class="col-md-3 d-flex align-items-end">
-          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>連絡先:080-1764-0796</p>
+          <p style="font-size: 1.1em;">営業時間 昼14:00～ 翌2:00<br>連絡先: 080-1764-0796</p>
         </div>
       </div>
       
@@ -46,99 +49,91 @@
         </div>
       </div>
       
+      <!--ボタン表示-->
       <div class="row">
         <div class="col-6">
-          <div class="float-left test-box">
-            <button type="button" class="btn btn-light">
-              <%= link_to "プレイ内容", '/homes/new' %>
-            </button>
-            <button type="button" class="btn btn-light">
-              <%= link_to "システム料金", '/homes/show' %>
-            </button>
-            <button type="button" class="btn btn-light">
-              <%= link_to "在籍女子", homes_path %>
-            </button>
-            <button type="button" class="btn btn-light">
-              <%= link_to "求人情報", homes_job_offer_path %>
-            </button>
-          </div>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "プレイ内容", '/homes/new' %></button>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "システム料金", '/homes/show' %></button>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "在籍女子", homes_path %></button>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "求人情報", homes_job_offer_path %></button>
         </div>
         
         <div class="col-6">
-          <div class="float-right test-box">
+          <div class="float-right">
             <% if user_signed_in? %>
-              <div class="right">
-                <button type="button" class="btn btn-light">
-                  <%= link_to "ユーザー情報", "/performers/#{@user.id}" %>
-                </button>
-                <button type="button" class="btn btn-light">
-                  <%= link_to "変更", "/performers/#{@user.id}/edit" %>
-                </button>  
-                <button type="button" class="btn btn-light">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: "delete" %>
-                </button>
-              </div>
+              <button type="button" class="m-1 btn btn-light"><%= link_to "ユーザー情報", "/performers/#{@user.id}" %></button>
+              <button type="button" class="m-1 btn btn-light"><%= link_to "変更", "/performers/#{@user.id}/edit" %></button>  
+              <button type="button" class="m-1 btn btn-light"><%= link_to "ログアウト", destroy_user_session_path, method: "delete" %></button>
             <% else %>
-              <div class="right">
-                <button type="button" class="btn btn-light">
-                  <%= link_to "新規登録", new_user_registration_path, method: "get" %>
-                </button>
-                <button type="button" class="btn btn-light">
-                  <%= link_to "ログイン\n", new_user_session_path, method: "get" %>
-                </button>
-              </div>
+              <button type="button" class="m-1 btn btn-light"><%= link_to "新規登録", new_user_registration_path, method: "get" %></button>
+              <button type="button" class="m-1 btn btn-light"><%= link_to "ログイン\n", new_user_session_path, method: "get" %></button>
             <% end %>
           </div>
         </div>
+        
       </div>
+      
     </div>
   </header>
   
   <body>
+    <%# アクセス研究所 %>
     <% if (Rails.env.production?) && (controller.controller_name != "registrations") %>
       <script src="//accaii.com/rino/script.js" async></script><noscript><img src="//accaii.com/rino/script?guid=on"></noscript>
     <% end %>
-    <%# フラッシュ追加%>
+    
+    <%# フラッシュ表示%>
     <% if notice.present? %>
       <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <p><%= notice %></p>
       </div>
     <% end %>
-  
+    
+    <%# アラート表示%>
     <% if alert.present? %>
       <div class="alert alert-dismissable alert-danger">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <p><%= alert %></p>
       </div>
     <% end %>
-    <div class="container-fluid">
+    
+    <%# コンテンツ内容表示%>
     <%= yield %>
-    </div>
+
   </body>
   
+  <!-- フッダー -->
+  <%# 管理者権限の場合にフッダーの色を赤色に変更 %>
   <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
     <footer class="footer color_red">
   <% else %>
     <footer class="footer color_pink">
   <% end %>
   
-    <div class="container-fluid clearfix">
+    <!-- フッダーリンク -->
+    <div class="container-fluid">
       <div class="row mx-5 my-3">
         <div class="mx-3"><%= link_to '利用規約', opinions_terms_path %></div>
         <div class="mx-3"><%= link_to 'プライバシーポリシー', opinions_policy_path %></div>
         <div class="mx-3"><%= link_to '特定商取引法に基づく表記', opinions_transaction_path %></div>
       </div>
+      
       <div class="row mx-5 my-3">
         <div class="mx-3"><%= link_to 'ご意見板', opinions_terms_path %></div>
         <div class="mx-3"><%= link_to '松戸風俗情報', opinions_policy_path %></div>
       </div>
+      
       <div class="row mx-5 my-2">
-        <div class="col-12 clearfix">
-          <div class="float-right"><p>© 2021 即ボコ女子松戸店</p></div>
+        <div class="col-12">
+          <!-- 管理者用隠しリンク -->
           <span style="font-size: 0.1em;"><a href= "/tests" class="hid">'</a></span>
+          
+          <div class="float-right"><p>© 2021 即ボコ女子松戸店</p></div>
         </div>
+        
       </div>
     </div>
+    
   </footer>
 </html>
