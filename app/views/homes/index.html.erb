@@ -3,18 +3,16 @@
 <h1>在籍女子</h1>
 
 <div class="container">
+  
   <div class="row my-5"><!-- 縦のマージンが0～5の内の5(要素の基本サイズ*3) -->
     <% begin #例外が起きた場合は何もしない %>
     
-      <% @performers.each do |performer| %>
+    
+      <%# 店から許可を受けた女子達のサムネイル画像を表示%>
+      <% @performers.each do | performer | %>
       　<% if '入店' == performer.progress %>
           <div class="col-md-auto">
-            <% if performer.image? %>
-              <%= link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-            <% else %>
-              <%= link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}" %>
-            <% end %>
-            
+            <%= display_thumbnail(performer) %>
             <div class="col-md-auto text-center">
               <% if performer.nickname? %>
                 <span class="small">
@@ -31,6 +29,7 @@
     <% rescue => e %>
     <% end %>
   </div>
+  
 </div>
 
   

@@ -12,11 +12,7 @@
       
     <% elsif '入店' == @user.performer.progress %>
       <div class="col-sm-3">
-        <% if @user.performer.image? %>
-          <%= image_tag(@user.performer.image.url, class: 'thumbnail') %>
-        <% else %>
-          <%= image_tag("/img/pending.png", class: 'thumbnail') %>
-        <% end %>
+        <%= display_thumbnail(@user.performer) %>
       </div>
       
       <div class="col-sm-9">

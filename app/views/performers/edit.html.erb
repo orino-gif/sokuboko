@@ -6,8 +6,7 @@
 
 <div class="container">
   
-  <% if 'orino0710@gmail.com' == @certification.email %>
-
+  <% if ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
     
     <div class="row my-5">
       <%= "お店用のプロフィール：" %>
@@ -49,26 +48,23 @@
     
   <% end %>
       
-  <% if '女' == @user.sex %>
+  <% if '女' == @user.sex || ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
     <div class="row my-5">
-      <% if @user.performer.image? %>
-        <%= image_tag @user.performer.image.url, class: 'thumbnail'  %>
-      <% else %>
-        <%= image_tag("/img/pending.png", class: 'thumbnail') %>
-      <% end %>
+      <%= display_thumbnail(@user.performer) %>
     </div>
+    
     <div class="row my-5">
       <%= "週間スケジュール：" %>
       <table>
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "可能な日時(定休日 月曜日、店営業18:00～00:00、休暇 00:00～00:00 :" %><br>
-            <%= "　日曜日　" %><%= f.time_select  :sun_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :sun_end ,include_blank: true, class: 'form-control' %><br>
-            <%= "　火曜日　" %><%= f.time_select  :tue_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :tue_end ,include_blank: true, class: 'form-control' %><br>
-            <%= "　水曜日　" %><%= f.time_select  :wed_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :wed_end ,include_blank: true, class: 'form-control' %><br>
-            <%= "　木曜日　" %><%= f.time_select  :thu_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :thu_end ,include_blank: true, class: 'form-control' %><br>
-            <%= "　金曜日　" %><%= f.time_select  :fri_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :fri_end ,include_blank: true, class: 'form-control' %><br>
-            <%= "　土曜日　" %><%= f.time_select  :sat_start ,include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select  :sat_end ,include_blank: true, class: 'form-control' %>
+            <%= "可能な日時(定休日 月曜日、店営業18:00～00:00、休暇 00:00～00:00 )" %><br>
+            <%= "　日曜日　" %><%= f.time_select :sun_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :sun_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　火曜日　" %><%= f.time_select :tue_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :tue_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　水曜日　" %><%= f.time_select :wed_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :wed_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　木曜日　" %><%= f.time_select :thu_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :thu_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　金曜日　" %><%= f.time_select :fri_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :fri_end ,include_blank: true, class: 'form-control' %><br>
+            <%= "　土曜日　" %><%= f.time_select :sat_start, include_blank: true, class: 'form-control' %><%="～" %><%= f.time_select :sat_end ,include_blank: true, class: 'form-control' %>
             <%= f.submit "変更" %>
           <% end %>
         </td></tr>
