@@ -4,15 +4,15 @@ module ApplicationHelper
   def display_thumbnail(performer)
     if performer.image? 
       if controller.controller_name == "homes"
-        link_to image_tag(performer.image.url, class: 'thumbnail'), "/performers/#{performer.user_id}"
+        link_to image_tag(performer.image.url, class: 'thumbnail sm-center'), "/performers/#{performer.user_id}"
       else
-        image_tag(performer.image.url, class: 'thumbnail')
+        image_tag(performer.image.url, class: 'thumbnail sm-center')
       end
     else
       if controller.controller_name == "homes"
-        link_to image_tag("/img/pending.png", class: 'thumbnail'), "/performers/#{performer.user_id}"
+        link_to image_tag("/img/pending.png", class: 'thumbnail sm-center'), "/performers/#{performer.user_id}"
       else
-        image_tag("/img/pending.png", class: 'thumbnail')
+        image_tag("/img/pending.png", class: 'thumbnail sm-center')
       end
     end 
   end

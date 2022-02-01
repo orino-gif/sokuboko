@@ -46,3 +46,9 @@ a{ color: maroon; text-decoration: none !important; }
 //店からの説明用の枠：ページと文字を中央寄せ
 div.inner{ width: 80%; margin: 0 auto; max-width: 600px; }
 
+
+@media screen and (max-width:576px){
+  /*WEBページの幅が576px以下で適用する内容*/
+  .sm-center { margin : 0 auto;}
+}
+
