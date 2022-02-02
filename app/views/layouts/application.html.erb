@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗店!! 即ボコ女子松戸店!!</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗店!</title>
     
     <!--スマホ対応-->
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
       <!--トップ表示-->
       <div class="row">
         <div class="col-md-9">
-          <%= link_to image_tag('symbol.png',class: 'headericon'),  homes_path %>
+          <%= link_to image_tag('symbol.png',class: 'headericon'), performers_path %>
           <span class="x-large"><strong>即ボコ女子</strong></span>
           <span class="small">～<strong>松戸</strong>発。逆転無しの<strong>M男向けデリヘル</strong>。</span>
         </div>
@@ -54,8 +54,8 @@
       <div class="row">
         <div class="col-6">
           <button type="button" class="m-1 btn btn-light"><%= link_to "プレイ内容", homes_play_content_path %></button>
-          <button type="button" class="m-1 btn btn-light"><%= link_to "システム料金", '/homes/show' %></button>
-          <button type="button" class="m-1 btn btn-light"><%= link_to "在籍女子", homes_path %></button>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "システム料金", homes_fee_path %></button>
+          <button type="button" class="m-1 btn btn-light"><%= link_to "在籍女子", performers_path %></button>
           <button type="button" class="m-1 btn btn-light"><%= link_to "求人情報", homes_job_offer_path %></button>
         </div>
         
@@ -78,7 +78,8 @@
   </header>
   
   <body>
-    <% if (Rails.env.production?) && (controller.controller_name != "registrations") # アクセス解析 %>
+    <!--アクセス解析-->
+    <% if (Rails.env.production?) && (controller.controller_name != "registrations") %>
       <script src="//accaii.com/rino/script.js" async></script>
       <noscript><img src="//accaii.com/rino/script?guid=on"></noscript>
     <% end %>
@@ -114,14 +115,14 @@
     <!-- フッダーリンク -->
     <div class="container-fluid">
       <div class="row mx-5 mt-3">
-        <div class="mx-3"><%= link_to '利用規約', opinions_terms_path %></div>
-        <div class="mx-3"><%= link_to 'プライバシーポリシー', opinions_policy_path %></div>
-        <div class="mx-3"><%= link_to '特定商取引法に基づく表記', opinions_transaction_path %></div>
+        <div class="mx-3"><%= link_to '利用規約', homes_terms_path %></div>
+        <div class="mx-3"><%= link_to 'プライバシーポリシー', homes_policy_path %></div>
+        <div class="mx-3"><%= link_to '特定商取引法に基づく表記', homes_transaction_path %></div>
       </div>
       
       <div class="row mx-5 mt-1">
-        <div class="mx-3"><%= link_to 'ご意見板', opinions_terms_path %></div>
-        <div class="mx-3"><%= link_to '松戸風俗情報', opinions_policy_path %></div>
+        <div class="mx-3"><%= link_to 'ご意見板', homes_terms_path %></div>
+        <div class="mx-3"><%= link_to '松戸風俗情報', homes_policy_path %></div>
       </div>
       
       <div class="row mx-5 my-2">

@@ -3,21 +3,21 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
-  root to: 'homes#index'
+  root to: 'performers#index'
 
   get 'performers/identification'
   get 'performers/full_body'
-  get 'opinions/terms'
-  get 'opinions/policy'
-  get 'opinions/transaction'
-  get 'opinions/service'
+  get 'homes/terms'
+  get 'homes/policy'
+  get 'homes/transaction'
+  get 'homes/service'
   get 'homes/job_offer'
   get 'homes/play_content'
+  get 'homes/fee'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :homes, only: [:index, :show]
   resources :tests, only: [:index, :show]
-  resources :performers, only: [:new, :show, :edit, :update]
+  resources :performers, only: [:index, :new, :show, :edit, :update]
   resources :opinions, only: [:index]
   
 end

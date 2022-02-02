@@ -3,13 +3,13 @@ module ApplicationHelper
   #サムネイル画像を表示。登録画像が無い場合は、代替え画像を表示。homes/indexの画像以外はリンク先を付与しない。
   def display_thumbnail(performer)
     if performer.image? 
-      if controller.controller_name == "homes"
+      if controller.controller_name == "performers" && controller.action_name == 'index'
         link_to image_tag(performer.image.url, class: 'thumbnail sm-center'), "/performers/#{performer.user_id}"
       else
         image_tag(performer.image.url, class: 'thumbnail sm-center')
       end
     else
-      if controller.controller_name == "homes"
+      if controller.controller_name == "performers" && controller.action_name == 'index'
         link_to image_tag("/img/pending.png", class: 'thumbnail sm-center'), "/performers/#{performer.user_id}"
       else
         image_tag("/img/pending.png", class: 'thumbnail sm-center')

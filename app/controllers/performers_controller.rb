@@ -1,5 +1,8 @@
 class PerformersController < ApplicationController
   
+  def index
+    @performers = Performer.all
+  end
   def new
     if user_signed_in?
       @user = User.find(current_user.id)
