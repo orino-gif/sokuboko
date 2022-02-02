@@ -44,7 +44,9 @@
       
       <div class="row">
         <div class="col-11">
-          <div class="float-right"><span class="x-small"><%= "女子求人! 面接不要! 5分でネット登録!" %></span></div>
+          <div class="float-right">
+            <span class="x-small">女子求人! 面接不要! 5分でネット登録!</span>
+          </div>
         </div>
       </div>
       
@@ -77,27 +79,32 @@
   
   <body>
     <% if (Rails.env.production?) && (controller.controller_name != "registrations") # アクセス解析 %>
-      <script src="//accaii.com/rino/script.js" async></script><noscript><img src="//accaii.com/rino/script?guid=on"></noscript>
+      <script src="//accaii.com/rino/script.js" async></script>
+      <noscript><img src="//accaii.com/rino/script?guid=on"></noscript>
     <% end %>
 
-    <% if notice.present? #フラッシュ表示 %>
+    <!--フラッシュ表示-->
+    <% if notice.present? %>
       <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert">&times;</button><p><%= notice %></p>
-      </div>
-    <% end %>
-
-    <% if alert.present? #アラート表示 %>
-      <div class="alert alert-dismissable alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button><p><%= alert %></p>
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p><%= notice %></p>
       </div>
     <% end %>
     
-    <%= yield %><%# コンテンツ内容表示%>
+    <!--アラート表示-->
+    <% if alert.present? %>
+      <div class="alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+    
+    <!--コンテンツ内容表示-->
+    <%= yield %>
   </body>
   
-  <!-- フッダー -->
-  <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email # 管理者権限の場合にフッダーの色を赤色に変更 %>
-    <!-- 管理者用ページ -->
+  <!-- フッダー。管理者権限の場合にフッダーの色を赤色に変更  -->
+  <% if nil != @certification && ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
     <a href= "/tests">管理者用のページへ</a>
     <footer class="footer color_red">
   <% else %>
@@ -119,11 +126,8 @@
       
       <div class="row mx-5 my-2">
         <div class="col-12">
-          
-          
           <div class="float-right"><p>© 2021 即ボコ女子松戸店</p></div>
         </div>
-        
       </div>
     </div>
     

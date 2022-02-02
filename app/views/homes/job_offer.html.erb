@@ -1,59 +1,82 @@
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;  求人情報</h1>
-  </div>
-</div>
-  
+<% content_for(:html_title) { '風俗嬢求人情報 | ソフトSM | S女 | 格闘技経験者歓迎' } %>
+
+<h1>求人情報</h1>
+
 <div class="container">
   <div class="row my-5">
     <div class="border border-danger inner">
-      <p style="text-align:center;">こんな方におすすめです。
+      <p class="center">こんな方におすすめです。</p>
     </div>
   </div>
   
-  <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/harassment.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "いじめを受けた経験からトラウマを持っている方。職場でハラスメントを受けてストレスが溜まっている方。
-      立場が上の人を叩く事による解消方法があります。（辛い記憶を楽しい経験で上書きする心理療法）" %></div>
+  <div class="row my-5 d-flex align-items-center"> <!--コンテンツを縦の軸の中央に寄せる-->
+    <div class="col-5"><%= image_tag '/img/harassment.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        いじめを受けた経験からトラウマを持っている方。職場でハラスメントを受けてストレスが溜まっている方。
+        立場が上の人を叩く事による解消方法があります。（辛い記憶を楽しい経験で上書きする心理療法)
+      </p>
+    </div>
   </div>  
   
   <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/rejection.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "恋人同士が行う行為を他人にする事に抵抗がある方。当店では、在籍する女子本人が使用する技を全て決められます。
-      なので、叩くだけの技のみで登録して、恋人同士が行う行為を行わない事も可能です。" %></div>
+    <div class="col-5"><%= image_tag '/img/rejection.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        恋人同士が行う行為を他人にする事に抵抗がある方。当店では、在籍する女子本人が使用する技を全て決められます。
+        なので、<strong>叩く</strong>だけの技のみで登録して、恋人同士が行う行為を行わない事も可能です。
+      </p>
+    </div>
   </div>  
   
   <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/preference.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "好きな事をしてお金を稼ぎたい方。男性を叩いたり、嬲ったり、おしっこかけたりする行為が好きな方が、意外と少なくありません。
-    　抵抗があるのは最初だけのケースが多いようです。報酬は日給3万5千円以上を稼ぐ事も可能です。" %></div>
+    <div class="col-5"><%= image_tag '/img/preference.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        好きな事をしてお金を稼ぎたい方。男性を叩いたり、<strong>嬲ったり</strong>、おしっこかけたりする行為が好きな方が、意外と少なくありません。
+    　   抵抗があるのは最初だけのケースが多いようです。報酬は日給3万5千円以上を稼ぐ事も可能です。
+    　</p>
+    </div>
   </div>  
   
   <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/safety.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "風俗は怖いと思っている方。当店では、所轄の警察署より許可を取って運営している優良店です。
-    所轄の警察署より指導されている為、安全と衛生面には常に気を使っています。" %></div>
+    <div class="col-5"><%= image_tag '/img/safety.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        <strong>風俗</strong>は怖いと思っている方。当店では、所轄の警察署より許可を取って運営している優良店です。
+        所轄の警察署より指導されている為、安全と衛生面には常に気を使っています。
+      </p>
+    </div>
   </div>  
   
   <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/pick-up.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "面接や出勤で店へ足を運ぶのが億劫な方。当店では、ネットの書類審査のみで面接不要です。
-    又、自宅待機と自宅への送迎が可能です(※松戸市、市川市、葛飾区在住の方)。" %></div>
+    <div class="col-5"><%= image_tag '/img/pick-up.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        面接や出勤で店へ足を運ぶのが億劫な方。当店では、<strong>ネットの書類審査のみ</strong>で<strong>面接不要</strong>です。
+        又、自宅待機と自宅への送迎が可能です(※松戸市、市川市、葛飾区在住の方)。
+      </p>
+    </div>
   </div> 
   
   <div class="row my-5 d-flex align-items-center">
-    <div class="col-md-5"><%= image_tag '/img/more_tip.png', class:'illustrated' %></div>
-    <div class="col-md-7"><%= "指名がくる自信がなくて稼げるかどうかと不安な方。書類審査が通れば、報酬ありの体験を兼ねた研修が受けられます。
-    又、待機所で新しい技を提案して登録が認められれば、チップが貰えるチップ制度があります。" %></div>
+    <div class="col-5"><%= image_tag '/img/more_tip.png', class:'square' %></div>
+    <div class="col-lg-7">
+      <p class="white">
+        <strong>指名</strong>がくる自信がなくて稼げるかどうかと不安な方。書類審査が通れば、報酬ありの体験を兼ねた研修が受けられます。
+        又、待機所への出勤や、待機所で新しい技を提案して登録が認められれば、チップが貰えるチップ制度があります。
+      </p>
+    </div>
   </div> 
   
-  <div class="div class="row my-5"">
-    <p style="text-align:center;">応募条件：18歳～34歳迄<br>
-    面接不要、ネット上の書類審査のみ。<br><br>
-    ご質問がありましたら、ご意見板、又は、電話にて承っております。</p>
+  <div class="row my-5 justify-content-center"> <!--コンテンツを横の軸の中央に寄せる-->
+    <p class="center">
+      応募条件：18歳～34歳迄<br>面接不要、ネット上の書類審査のみ。<br><br>
+      ご質問がありましたら、ご意見板、又は、電話にて承っております。
+    </p>
   </div> 
   
-  <div class="form-group row justify-content-center">
+  <div class="row my-5 justify-content-center">
     <button type="button" class="btn btn-light">
       <%= link_to "ユーザー登録へ", new_user_registration_path %>
     </button>

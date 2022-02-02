@@ -5,9 +5,10 @@
 <div class="container">
   
   <div class="row my-5"><!-- 縦のマージンが0～5の内の5(要素の基本サイズ*3) -->
-    <% begin #例外が起きた場合は何もしない %>
+    <!-- 例外が起きた場合は何もしない-->
+    <% begin %>
     
-      <%# 店から許可を受けた女子達のサムネイル画像を表示%>
+      <!-- 店から許可を受けた女子達のサムネイル画像を表示 -->
       <% @performers.each do | performer | %>
       
       　<% if '入店' == performer.progress %>
