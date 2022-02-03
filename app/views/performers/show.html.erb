@@ -1,14 +1,13 @@
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;プロフィール</h1>
-  </div>
-</div>
+<% content_for(:html_title) { '在籍女子のプロフィール | 即ボコ女子松戸店' } %>
+
+<h1>プロフィール</h1>
 
 <div class="container">
     <% if '審査中' == @user.performer.progress %>
-    <div class="row my-5">
-      <%= @user.performer.nickname+"さんの書類を審査中" %><br>
-      <%= "審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。" %>
+      <div class="row my-5">
+        <p class="large"><%= @user.performer.nickname %>さんの書類を審査中です。<br>
+        審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。</p>
+      </div>
       
     <% elsif '入店' == @user.performer.progress %>
       <div class="col-sm-3">
@@ -16,36 +15,33 @@
       </div>
       
       <div class="col-sm-9">
-        <font size="5px"><%= @user.performer.nickname+"さんの攻撃技：" %><p class="bg-white"><%= @user.performer.attack %></p></font>
+        <p class="large white"><%= @user.performer.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p>
       </div>
-    </div>
-
-    <div class="container">
-      <table class="table">
-        <tr>
-          <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
-        </tr>
-        <tr>
-          <td><%= schedule(@user.performer.sun_start.strftime('%H:%M'), @user.performer.sun_end.strftime('%H:%M')) %></td>
-          <td>定休日</td>
-          <td><%= schedule(@user.performer.tue_start.strftime('%H:%M'), @user.performer.tue_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.wed_start.strftime('%H:%M'), @user.performer.wed_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.thu_start.strftime('%H:%M'), @user.performer.thu_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.fri_start.strftime('%H:%M'), @user.performer.fri_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
-        </tr>
-      </table>
-    </div>
+      
+      <div class="container">
+        <table class="table">
+          <tr>
+            <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
+          </tr>
+          <tr>
+            <td><%= schedule(@user.performer.sun_start.strftime('%H:%M'), @user.performer.sun_end.strftime('%H:%M')) %></td>
+            <td>定休日</td>
+            <td><%= schedule(@user.performer.tue_start.strftime('%H:%M'), @user.performer.tue_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.wed_start.strftime('%H:%M'), @user.performer.wed_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.thu_start.strftime('%H:%M'), @user.performer.thu_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.fri_start.strftime('%H:%M'), @user.performer.fri_end.strftime('%H:%M')) %></td>
+            <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
+          </tr>
+        </table>
+      </div>
 
     <% else %>
-    <div class="row my-5">
-      <font size="5px"><%= "面接不要の書類審査を通過後に表示されます"%></font>
-    </div>
-    
-    <div class="row my-5">
-      <button type="button">
-        <%= link_to "書類審査申請", new_performer_path %>
-      </button>
-    </div>
+      <div class="row my-5">
+        <p class="large">面接不要の書類審査を通過後に表示されます</p>
+      </div>
+      
+      <div class="row my-5">
+        <button type="button"><%= link_to "書類審査申請", new_performer_path %></button>
+      </div>
     <% end %>
   </div>

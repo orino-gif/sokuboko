@@ -21,11 +21,10 @@
 h1{ background-color: pink; padding: 0.2em 0.8em; font-size: 2.0em; }
 
 //文字の大きさを定義
-span.x-small { font-size: 0.5em; }
-span.small { font-size: 0.9em; }
-span.medium { font-size: 1.1em; }
-span.large { font-size: 1.2em; }
-span.x-large { font-size: 2.5em; }
+.x-small { font-size: 0.5em; }
+.small { font-size: 0.9em; }
+.large { font-size: 1.6em; }
+.x-large { font-size: 2.5em; }
 
 //文字の位置や背景を定義
 .center { text-align: center; }

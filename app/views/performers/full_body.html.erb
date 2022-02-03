@@ -1,16 +1,14 @@
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;書類審査申請</h1>
-  </div>
-</div>
+<% content_for(:html_title) { '書類審査申請 | 即ボコ女子松戸店' } %>
+
+<h1>書類審査申請</h1>
 
 <div class="container">
   <div class="row my-5">
-    <%=   "1・２・3⃣" %>
+    <p>  1・２・3⃣</p>
   </div>
   
   <div class="row my-5">
-    <%= "全身写真(全身が分かる写真)：" %>
+    <p>全身写真(全身が分かる写真)</p>
   </div>
   
   <div class="row my-5">
@@ -23,11 +21,11 @@
   
   <div class="row my-5">
     <% if @performer.full_body? %>
-      <%= image_tag @performer.full_body.url, class: 'thumbnail'  %>
+      <%= image_tag @performer.full_body.url, class: 'thumbnail' %>
     <% end %>
   </div>
   
   <div class="row my-5">
-    <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査依頼'}}   %>
+    <%= button_to "完了", "/performers/#{@performer.user_id}", {method: :get, params:{status: '審査依頼'}} %>
   </div>
 </div>
