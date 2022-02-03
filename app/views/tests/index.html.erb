@@ -1,3 +1,5 @@
+<meta name="robots" content="none">
+
 <% content_for(:html_title) { '利用者一覧 | 管理者用のページ | 即ボコ女子松戸店' } %>
 
 <h1>利用者一覧</h1>
@@ -9,13 +11,13 @@
         <% begin %>
           <table border=”1″>
             <tr>
-              <th><%= "名前" %></th>
-              <th><%= "Eメール" %></th>
-              <th><%= "電話番号" %></th>
-              <th><%= "性別" %></th>
-              <th><%= "住所" %></th>
-              <th><%= "申請状態" %></th>
-              <th><%= "プロフィール" %></th>
+              <th><p> 名前</p></th>
+              <th><p> Eメール</p></th>
+              <th><p> 電話番号</p></th>
+              <th><p> 性別</p></th>
+              <th><p> 住所</p></th>
+              <th><p> 申請状態</p></th>
+              <th><p> プロフィール</p></th>
             </tr>
             <% @users.each do |user| %>
               <tr>

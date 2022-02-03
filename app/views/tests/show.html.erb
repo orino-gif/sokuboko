@@ -1,20 +1,19 @@
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;利用者詳細</h1>
-  </div>
-</div>
+<meta name="robots" content="none">
 
+<% content_for(:html_title) { '利用者詳細 | 管理者用のページ | 即ボコ女子松戸店' } %>
 
 <div class="container">
   <div class="row">
     <% begin %>
       <table border=”1″>
         <tr>
-          <th><%= "ニックネーム" %></th>
-          <th><%= "歳" %></th>
-          <th><%= "スリーサイズ" %></th>
-          <th><%= "身分証明写真" %></th>
-          <th><%= "全身写真" %></th>
+          <th><p>ニックネーム</p></th>
+          <th><p>歳</p></th>
+          <th><p>スリーサイズ</p></th>
+          <th><p>身分証明写真</p></th>
+          <th><p>全身写真</p></th>
+          <th><p>状態</p></th>
+          <th><p>許可</p></th>
         </tr>
         <tr>
           <td><%= @user.performer.nickname %></td>

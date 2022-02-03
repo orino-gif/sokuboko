@@ -4,6 +4,7 @@ class TestsController < ApplicationController
       @user = User.find(current_user.id)
     end
     @users = User.all
+    p @users
   end
   
   def show
@@ -16,7 +17,6 @@ class TestsController < ApplicationController
     elsif '退店' == params[:status]
       @user.performer.progress = '退店'
       @user.performer.save
-      
     end
   end
 end
