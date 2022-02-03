@@ -1,6 +1,6 @@
-<% content_for(:html_title) { '書類審査申請 | 即ボコ女子松戸店' } %>
+<% content_for(:html_title) { '全身写真 | 書類審査申請 | 即ボコ女子松戸店' } %>
 
-<h1>書類審査申請</h1>
+<h1>全身写真提出</h1>
 
 <div class="container">
   <div class="row my-5">
@@ -8,14 +8,14 @@
   </div>
   
   <div class="row my-5">
-    <p>全身写真(全身が分かる写真)</p>
+    <p class="large">全身写真(全身が分かる写真)</p>
   </div>
   
   <div class="row my-5">
     <%= form_with(model: @performer, local: true) do |f| %>
       <%= f.file_field :full_body %>
       <%= f.hidden_field :examination, :value => "full_body" %>
-      <%= submit_tag("登録") %>
+      <%= f.submit "登録" %>
     <% end %>
   </div>
   

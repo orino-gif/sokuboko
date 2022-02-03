@@ -38,7 +38,7 @@
       <%= "画像：" %>
       <%= form_with(model: @user.performer, local: true) do |f| %>
         <%= f.file_field :image %>
-        <%= f.submit("登録") %>
+        <%= f.submit "登録" %>
       <% end %>
     </div>
   <% end %>

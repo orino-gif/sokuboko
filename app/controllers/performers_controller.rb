@@ -51,9 +51,6 @@ class PerformersController < ApplicationController
     if @performer.update(perfomer_params)
       if "identification" == params[:performer][:examination]
         redirect_to performers_identification_path
-        
-      elsif "full_body" == params[:performer][:examination]
-        redirect_to request.referer
       else
         redirect_to request.referer
       end

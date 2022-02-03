@@ -1,12 +1,10 @@
-<div class="row">
-  <div class="col-md-12 px-0">
-    <h1>&nbsp;書類審査申請</h1>
-  </div>
-</div>
+<% content_for(:html_title) { 'プロフィール入力 | 書類審査申請 | 即ボコ女子松戸店' } %>
+
+<h1>プロフィール入力</h1>
 
 <div class="container">
   <div class="row my-5">
-    <%=   "1⃣・2・3" %>
+    <p>   "1⃣・2・3" </p>
   </div>
   <div class="row my-5">
     <div class="col-md-7 border border-primary">
@@ -29,7 +27,7 @@
         <%= f.hidden_field :examination, :value => "identification" %>
         
         <div>
-          <%= submit_tag("次へ") %>
+          <%= f.submit "次へ" %>
         </div><br>
       <% end %>
     </div>
