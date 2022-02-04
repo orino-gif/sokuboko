@@ -9,12 +9,6 @@
       <table class="table">
         <tr><td>
           <%= form_with(model: @user.performer, local: true) do |f| %>
-            <%= "ニックネーム：" %><%= f.text_field :nickname , {size:"30"} %>
-            <%= f.submit "変更" %>
-          <% end %>
-        </td></tr>
-        <tr><td>
-          <%= form_with(model: @user.performer, local: true) do |f| %>
             <%= "年齢：" %><%= f.text_field :age ,{size:"10"}%>
             <%= f.submit "変更" %>
           <% end %>
@@ -42,6 +36,7 @@
       <% end %>
     </div>
   <% end %>
+
       
   <% if '女' == @user.sex || ENV['ADMINISTRATOR_MAIL'] == @certification.email %>
     <div class="row my-5">

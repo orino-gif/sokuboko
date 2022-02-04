@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_31_224830) do
+ActiveRecord::Schema.define(version: 2022_02_04_162220) do
+
+  create_table "opinions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "performers", primary_key: "user_id", id: :integer, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "nickname"
     t.string "image"
     t.text "attack"
     t.integer "age"
@@ -39,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_12_31_224830) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "nickname", default: "", null: false
     t.string "name", default: "", null: false
     t.string "furigana", default: "", null: false
     t.string "sex", default: "", null: false
