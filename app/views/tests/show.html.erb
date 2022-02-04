@@ -31,8 +31,8 @@
           </td>
           <td><%= @user.performer.progress %></td>
           <td>
-            <%= button_to "入店許可", "/tests/#{@user.id}", {method: :get, params:{status: '入店'}}   %>
-            <%= button_to "退店", "/tests/#{@user.id}", {method: :get, params:{status: '退店'}}   %>
+            <%= button_to "入店許可", "/tests/#{@user.id}", {method: :get, params:{status: '入店'}} %>
+            <%= button_to "退店", "/tests/#{@user.id}", {method: :get, params:{status: '退店'}} %>
           </td>
         </tr>
       </table>
