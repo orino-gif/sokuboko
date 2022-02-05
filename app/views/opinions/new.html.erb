@@ -4,9 +4,9 @@
 
 <div class="container">
   <div class="row">
-    <%= form_with(model: @user.performer, local: true) do |f| %>
-      <%= "ご意見：" %><%= f.text_area :opinion ,{value: 'text',size:"60x8"} %>
+    <%= form_with(model: @opinions, local: true) do |f| %>
+      <%= "ご意見とご質問：" %><%= f.text_area :opinion ,{value: 'text',size:"60x8"} %>
       <%= f.submit "送信" %>
     <% end %>
-  </div>
+ </div>
 </div>
