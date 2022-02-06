@@ -46,7 +46,6 @@ class PerformersController < ApplicationController
       @performer = Performer.find_by(user_id:current_user.id)
     end
     
-    p @performer.nickname
     p params[:performer][:examination]
     if @performer.update(perfomer_params)
       if "identification" == params[:performer][:examination]
@@ -62,7 +61,7 @@ class PerformersController < ApplicationController
   private
   #ストロングパラメーター
   def perfomer_params
-    params.require(:performer).permit(:image,:nickname,:attack,:age,:three_size,:identification,:full_body,:progress,
+    params.require(:performer).permit(:image,:attack,:age,:three_size,:identification,:full_body,:progress,
      :sun_start,:sun_end,:tue_start,:tue_end,:wed_start,:wed_end,:thu_start,:thu_end,:fri_start,:fri_end,:sat_start,:sat_end)
   end
   

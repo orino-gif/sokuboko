@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   before_action :layouts_value
-  
+
   def layouts_value
     @user=current_user
     if user_signed_in?

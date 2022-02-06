@@ -1,0 +1,13 @@
+<% content_for(:html_title) { 'リクエスト一覧 | 即ボコ女子松戸店' } %>
+
+<h1>リクエスト一覧</h1>
+
+<div class="container">
+  
+  <div class="row my-5">
+    <% @homes.each do | home | %>
+      <%= home.id.to_s + ":" %><br>&nbsp;
+      <%= home.home %><br>
+    <% end %>
+  </div>
+</div>

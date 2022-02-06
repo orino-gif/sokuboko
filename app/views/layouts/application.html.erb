@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title><%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗!</title>
-    
+    <meta charset="UTF-8">
     <!--スマホ対応-->
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "" %> ｜松戸発のM男向けデリヘル風俗!</title>
     
     <!--integrity:html検証,crossorigin:ユーザー認証情報anonymous(不要)-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -57,6 +57,7 @@
           <button type="button" class="m-1 btn btn-light"><%= link_to "システム料金", homes_fee_path %></button>
           <button type="button" class="m-1 btn btn-light"><%= link_to "在籍女子", performers_path %></button>
           <button type="button" class="m-1 btn btn-light"><%= link_to "求人情報", homes_job_offer_path %></button>
+          
         </div>
         
         <div class="col-6">
@@ -121,7 +122,6 @@
       </div>
       
       <div class="row mx-5 mt-1">
-        <div class="mx-3"><%= link_to 'M男とS女の交流室', homes_policy_path %></div>
         <div class="mx-3"><%= link_to 'ご意見・質問フォーム', new_opinion_path %></div>
       </div>
       

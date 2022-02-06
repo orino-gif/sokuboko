@@ -5,7 +5,7 @@
 <div class="container">
     <% if '審査中' == @user.performer.progress %>
       <div class="row my-5">
-        <p class="large"><%= @user.performer.nickname %>さんの書類を審査中です。<br>
+        <p class="large"><%= @user.nickname %>さんの書類を審査中です。<br>
         審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。</p>
       </div>
       
@@ -15,7 +15,7 @@
       </div>
       
       <div class="col-sm-9">
-        <p class="large white"><%= @user.performer.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p>
+        <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p>
       </div>
       
       <div class="container">

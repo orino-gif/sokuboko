@@ -15,9 +15,9 @@
           <div class="col-sm-auto">
             <%= display_thumbnail(performer) %>
             <div class="col-sm-auto text-center">
-              <% if performer.nickname? %>
+              <% if performer.user.nickname? %>
                 <span class="small">
-                  <%= performer.nickname + " (#{performer.age.to_s})" %><br>
+                  <%= performer.user.nickname + " (#{performer.age.to_s})" %><br>
                   <%= "B-W-H: " + performer.three_size %><br>
                   <%= "本日 " + today_schedule(performer) %>
                 </span>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
-  root to: 'performers#index'
+  root to: 'homes#index'
 
   get 'performers/identification'
   get 'performers/full_body'
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   resources :tests, only: [:index, :show]
   resources :performers, only: [:index, :new, :show, :edit, :update]
   resources :opinions, only: [:index, :new, :create]
+  resources :homes, only: [:index, :new, :create]
+  
   
 end
