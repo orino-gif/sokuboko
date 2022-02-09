@@ -20,6 +20,4 @@ Rails.application.routes.draw do
   resources :performers, only: [:index, :new, :show, :edit, :update]
   resources :opinions, only: [:index, :new, :create]
   resources :homes, only: [:index, :new, :create]
-  
-  
 end

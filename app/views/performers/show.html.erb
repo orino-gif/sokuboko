@@ -18,6 +18,12 @@
         <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p>
       </div>
       
+      <button type="button" class="m-1 btn btn-light">
+        <address> <a href="tel:070-3304-9100">070-3304-9100</a></address>
+      </button>
+
+      <button type="button" class="m-1 btn btn-light"><%= link_to "リクエスト", new_user_session_path, method: "get" %></button>
+      
       <div class="container">
         <table class="table">
           <tr>

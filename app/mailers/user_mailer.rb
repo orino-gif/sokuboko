@@ -11,8 +11,9 @@ class UserMailer < ApplicationMailer
   
   def notification(performer)
     @performer = performer
-    mail(to: @performer.user.email
-      
+    mail(
+      to: @performer.user.email,
+      subject: "[即ボコ女子]#{@performer.user.nickname}さんの入店を許可しました。"
     )
   end
 end
