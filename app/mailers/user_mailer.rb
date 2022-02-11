@@ -16,4 +16,16 @@ class UserMailer < ApplicationMailer
       subject: "[即ボコ女子]#{@performer.user.nickname}さんの入店を許可しました。"
     )
   end
+  
+  def request(homes,sender,receiver)
+    
+    @homes = homes
+    @sender = sender
+    @receiver = receiver
+    
+    mail(
+      to: "#{@sender.email}, #{@receiver.email}, #{ENV['ADMINISTRATOR_MAIL']}",
+      subject: "[即ボコ女子]#{@sender.nickname}さんから#{@receiver.nickname}へのリクエストが届きました。"
+    )
+  end
 end

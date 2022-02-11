@@ -4,16 +4,18 @@ class HomesController < ApplicationController
   end
   
   def new
-    if user_signed_in?
-      @sender_id = User.find(current_user.id)
-      @performer = Performer.find_by(user_id:@user.id)
-    end
-    p params[:status]
     @homes = Home.new
+    
+    if user_signed_in?
+     @sender = User.find(current_user.id)
+    end
+    @receiver = User.find(params[:status])
   end
   
   def create
     if Home.create(homes_params)
+      #UserMailer.request(@homes,@sender,@receiver).deliver_later
+      p "test"
       redirect_to(homes_path(@homes))
     else
       render :new
@@ -23,9 +25,14 @@ class HomesController < ApplicationController
   def show
   end
   
+  def update
+    
+  
+  end
+  
   private
   
   def homes_params
-    params.require(:home).permit(:request)
+    params.require(:home).permit(:request,:sender_id,:receiver_id)
   end
 end
