@@ -6,7 +6,7 @@
   
   <%= "リクエスト：" %>
   <div class="row">
-    <%= form_with(model: @request, local: true) do |f| %>
+    <%= form_with(model: @homes, local: true) do |f| %>
       <%= f.text_area :request ,{value: 'text',size:"60x8"} %>
       <%= f.submit "送信" %>
     <% end %>

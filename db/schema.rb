@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_174720) do
 
   create_table "homes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "request"
-    t.string "sender"
-    t.string "receiver"
+    t.integer "sender_id"
+    t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

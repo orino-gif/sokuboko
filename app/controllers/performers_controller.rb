@@ -9,8 +9,6 @@ class PerformersController < ApplicationController
       @performer = Performer.find_by(user_id:@user.id)
     end
   end
-  
-  
 
   def show
     @user = User.find(params[:id])

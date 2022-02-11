@@ -4,23 +4,28 @@ class HomesController < ApplicationController
   end
   
   def new
+    if user_signed_in?
+      @sender_id = User.find(current_user.id)
+      @performer = Performer.find_by(user_id:@user.id)
+    end
+    p params[:status]
     @homes = Home.new
   end
   
   def create
-    if request.create(request_params)
-      flash[:success] = '投稿に成功しました。'
-      redirect_to(requests_path(@homes))
+    if Home.create(homes_params)
+      redirect_to(homes_path(@homes))
     else
-      flash.now[:danger] = '投稿に失敗しました。'
       render :new
     end
   end
   
+  def show
+  end
+  
   private
   
-  
   def homes_params
-    params.require(:request).permit(:request)
+    params.require(:home).permit(:request)
   end
 end

@@ -10,21 +10,20 @@
       </div>
       
     <% elsif '入店' == @user.performer.progress %>
+    <div class="row my-5">
       <div class="col-sm-3">
         <%= display_thumbnail(@user.performer) %>
       </div>
       
       <div class="col-sm-9">
-        <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p>
-      </div>
+        <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p><br><br>
       
-      <button type="button" class="m-1 btn btn-light">
-        <address> <a href="tel:070-3304-9100">070-3304-9100</a></address>
-      </button>
+        <!--<button type="button" class="m-1 btn btn-light"><%#= link_to "リクエスト", new_home_path,class: "large", method: "get", params:{status: '製作中'} %></button>-->
+        <!--params:{status: params[:id]}で現在のshow/idのidの値を取得して、homes#newへ送る-->
+        <%= button_to 'リクエスト', {controller: 'homes', action: 'new'},{method: :get, class: "m-1 btn btn-light large" , params:{status: params[:id]}}%>
 
-      <button type="button" class="m-1 btn btn-light"><%= link_to "リクエスト", new_user_session_path, method: "get" %></button>
-      
-      <div class="container">
+      </div>
+      <!--<div class="container">-->
         <table class="table">
           <tr>
             <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
@@ -39,8 +38,8 @@
             <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
           </tr>
         </table>
-      </div>
-
+      <!--</div>-->
+    </div>
     <% else %>
       <div class="row my-5">
         <p class="large">面接不要の書類審査を通過後に表示されます</p>
