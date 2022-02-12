@@ -4,7 +4,8 @@ class TestsController < ApplicationController
       @user = User.find(current_user.id)
     end
     @users = User.all
-    p @users
+    @homes = Home.all
+
   end
   
   def show

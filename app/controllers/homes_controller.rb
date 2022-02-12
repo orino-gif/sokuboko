@@ -14,9 +14,9 @@ class HomesController < ApplicationController
   
   def create
     if Home.create(homes_params)
-      #UserMailer.request(@homes,@sender,@receiver).deliver_later
+      UserMailer.request(@homes,@sender,@receiver).deliver_later
       p "test"
-      redirect_to(homes_path(@homes))
+      redirect_to(performers_path)
     else
       render :new
     end
