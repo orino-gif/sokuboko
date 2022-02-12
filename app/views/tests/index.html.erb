@@ -43,6 +43,8 @@
             <th><p> 受信者</p></th>
             <th><p> 内容</p></th>
             <th><p> 日時</p></th>
+            <th><p> 出発点</p></th>
+            <th><p> 到着点</p></th>
           </tr>
           <% @homes.each do |home| %>
             <% sender = User.find(home.sender_id) %>
@@ -51,7 +53,9 @@
               <td><%= link_to sender.nickname,"/performers/#{sender.id}" %></td>
               <td><%= link_to receiver.nickname,"/performers/#{receiver.id}" %></td>
               <td><%= home.request %></td>
-              <td><%= home.created_at %></td>
+              <td><%= receiver.created_at %></td>
+              <td><%= receiver.address %></td>
+              <td><%= sender.address %></td>
             </tr>
           <% end %>
         </table>
