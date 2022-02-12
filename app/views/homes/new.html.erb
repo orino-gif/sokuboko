@@ -4,11 +4,37 @@
 
 <div class="container">
   
-  <%= "リクエスト：" %>
-  <%= form_with(model: @homes, local: true) do |f| %>
-    <%= f.text_area :request ,{value: 'text',size:"60x8"} %>
-    <%= f.hidden_field :sender_id, :value => @sender.id %>
-    <%= f.hidden_field :receiver_id, :value => @receiver.id %>
-    <%= f.submit "送信" %>
-  <% end %>
+  
+  
+  
+  <div class="row">
+    <%= form_with(model: @homes, local: true) do |f| %>
+    ■コース選択：
+  </div>
+  
+  <div class="row mb-3"> &emsp;
+    <%= f.radio_button :system_fee, "9000" %>40分9000円 &emsp;
+    <%= f.radio_button :system_fee, "13000" %>60分13000円 &emsp;
+    <%= f.radio_button :system_fee, "17000" %>80分17000円 
+  </div>
+  
+  
+  <div class="row">
+    ■リクエスト内容：
+  </div>
+      
+  <div class="row"> &emsp;
+      <%= f.text_area :request ,{value: '追加の攻撃技や禁止技を記入',size:"60x8"} %>
+      <%= f.hidden_field :sender_id, :value => @sender.id %>
+      <%= f.hidden_field :receiver_id, :value => @receiver.id %>
+  </div>
+  
+  <div class="row"> &emsp;
+      <%= f.submit "確認" %>
+    <% end %>
+  </div>    
+      
+  <div class="row">
+    <p>※リクエストを実行するには会員登録が必要です</p>
+  </div>
 </div>

@@ -4,6 +4,8 @@ class CreateHomes < ActiveRecord::Migration[5.2]
       t.text    :request
       t.integer :sender_id
       t.integer :receiver_id
+      t.integer :system_fee
+      t.integer :delivery_time
 
       t.timestamps
     end

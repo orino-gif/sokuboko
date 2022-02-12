@@ -17,15 +17,11 @@ class UserMailer < ApplicationMailer
     )
   end
   
-  def request(homes,sender,receiver)
-    
-    @homes = homes
+  def requests(sender)
     @sender = sender
-    @receiver = receiver
-    
     mail(
-      to: "#{@sender.email}, #{@receiver.email}, #{ENV['ADMINISTRATOR_MAIL']}",
-      subject: "[即ボコ女子]#{@sender.nickname}さんから#{@receiver.nickname}へのリクエストが届きました。"
+      to: @sender.email,
+      subject: "[即ボコ女子]さんからへのリクエストが届きました。"
     )
   end
 end

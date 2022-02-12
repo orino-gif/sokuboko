@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_174720) do
     t.text "request"
     t.integer "sender_id"
     t.integer "receiver_id"
+    t.integer "system_fee"
+    t.integer "delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
