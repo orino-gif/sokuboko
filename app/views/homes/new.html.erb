@@ -3,6 +3,7 @@
 <h1>リクエスト</h1>
 
 <div class="container">
+  
   <%= form_with(model: @homes, local: true) do |f| %>
     <div class="row">
       ■コース選択：
@@ -26,15 +27,20 @@
     </div>
         
     <div class="row"> &emsp;
-      <%= f.text_area :request ,{value: '追加の攻撃技や禁止技を記入',size:"60x8"} %>
-      <%= f.hidden_field :sender_id, :value => @sender.id %>
-      <%= f.hidden_field :receiver_id, :value => @receiver.id %>
+      <div class="col">
+        <%= f.text_area :request ,{value: '追加の攻撃技や禁止技を記入',size:"60x8"} %>
+        <%= f.hidden_field :sender_id, :value => @sender.id %>
+        <%= f.hidden_field :receiver_id, :value => @receiver.id %>
+      </div>
+      <div class="col">
+        
+      </div>
     </div>
     
     <div class="row"> &emsp;
       <%= f.submit "確認" %>
     </div>    
-        
+    
     <div class="row"> &emsp;
       <p>※ネット上でリクエストを行うには、会員登録が必要です<br>  
       ※リクエスト内容により、ご要望にお応えできない場合があります</p>

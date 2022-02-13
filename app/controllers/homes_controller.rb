@@ -7,24 +7,21 @@ class HomesController < ApplicationController
   
   def new
     @homes = Home.new
-    
     if user_signed_in?
      @sender = User.find(current_user.id)
     end
     @receiver = User.find(params[:status])
     $receiver = User.find(params[:status])
-    
-    
   end
   
   def create
     @sender = User.find(current_user.id)
     @receiver = $receiver
-    @homes = Home.find(12)
-    p @homes.id
 
     if Home.create(homes_params)
-      UserMailer.requests(@sender,@receiver).deliver_later
+      @home = Home.last
+      p @home
+      UserMailer.requests(@sender,@receiver,@home).deliver_later
       p "test"
       redirect_to performers_path , notice: '女の子へリクエストを送信しました。'
     else
@@ -36,8 +33,6 @@ class HomesController < ApplicationController
   end
   
   def update
-    
-  
   end
   
   private
