@@ -1,10 +1,11 @@
 class UserMailer < ApplicationMailer
-  default from: 'operation@sokuboko.sakura.ne.jp'
+  default from: "#{ENV['ADMINISTRATOR_MAIL']}"
 
   def progress_email(performer)
     @performer = performer
     mail(
-        to: "#{@performer.user.email},#{ENV['ADMINISTRATOR_MAIL']}",
+        to: @performer.user.email,
+        bcc: ENV['ADMINISTRATOR_MAIL'],
         subject: "[即ボコ女子]#{@performer.user.nickname}さんの書類審査を受け付けました。"
       )
   end
@@ -17,11 +18,13 @@ class UserMailer < ApplicationMailer
     )
   end
   
-  def requests(sender)
+  def requests(sender,receiver)
     @sender = sender
+    @receiver = receiver
     mail(
-      to: @sender.email,
-      subject: "[即ボコ女子]さんからへのリクエストが届きました。"
+      to: "#{ENV['ADMINISTRATOR_MAIL']}",
+      bcc: "#{@sender.email},#{@receiver.email}",
+      subject: "[即ボコ女子]#{@receiver.nickname}さんへリクエストが送られました。"
     )
   end
 end

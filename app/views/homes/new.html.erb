@@ -3,39 +3,41 @@
 <h1>リクエスト</h1>
 
 <div class="container">
-  
-  
-  
-  
-  <div class="row">
-    <%= form_with(model: @homes, local: true) do |f| %>
-    ■コース選択：
-  </div>
-  
-  <div class="row mb-3"> &emsp;
-    <%= f.radio_button :system_fee, "9000" %>40分9000円 &emsp;
-    <%= f.radio_button :system_fee, "13000" %>60分13000円 &emsp;
-    <%= f.radio_button :system_fee, "17000" %>80分17000円 
-  </div>
-  
-  
-  <div class="row">
-    ■リクエスト内容：
-  </div>
+  <%= form_with(model: @homes, local: true) do |f| %>
+    <div class="row">
+      ■コース選択：
+    </div>
+    
+    <div class="row mb-3"> &emsp;
+      <%= f.radio_button :system_fee, "9000" %>
+      <%= f.label :system_fee, '40分9000円', value: '9000' %> &emsp;
       
-  <div class="row"> &emsp;
+      
+      <%= f.radio_button :system_fee, "13000" %>
+      <%= f.label :system_fee, '60分13000円 ', value: '13000' %> &emsp;
+     
+      
+      <%= f.radio_button :system_fee, "17000" %>
+      <%= f.label :system_fee, '80分17000円 ', value: '17000' %>
+    </div>
+    
+    <div class="row">
+      ■リクエスト内容：
+    </div>
+        
+    <div class="row"> &emsp;
       <%= f.text_area :request ,{value: '追加の攻撃技や禁止技を記入',size:"60x8"} %>
       <%= f.hidden_field :sender_id, :value => @sender.id %>
       <%= f.hidden_field :receiver_id, :value => @receiver.id %>
-  </div>
-  
-  <div class="row"> &emsp;
+    </div>
+    
+    <div class="row"> &emsp;
       <%= f.submit "確認" %>
-    <% end %>
-  </div>    
-      
-  <div class="row">
-    &emsp;<p>※ネット上でリクエストを行うには会員登録が必要です<br>  
-    ※リクエスト内容により、ご要望にお応えできない場合があります</p>
-  </div>
+    </div>    
+        
+    <div class="row"> &emsp;
+      <p>※ネット上でリクエストを行うには、会員登録が必要です<br>  
+      ※リクエスト内容により、ご要望にお応えできない場合があります</p>
+    </div>
+  <% end %>
 </div>

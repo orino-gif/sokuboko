@@ -33,6 +33,9 @@ p.white { background: white; margin: 0px 20px; }
 //ストロングタグの太字をを無効化
 strong{ font-weight:normal; }
 
+//ラベルタグの太字をを無効化
+label { font-weight: normal; }
+
 //画像大きさ調整
 img.headericon { width: 60px; height: 60px; } //ヘッダーアイコン画像
 img.thumbnail { width: 200px; height: 300px; } //サムネイル画像
