@@ -24,13 +24,20 @@ class HomesController < ApplicationController
       p @home
       UserMailer.requests(@sender,@receiver,@home).deliver_later
       p "test"
-      redirect_to performers_path , notice: '女の子へリクエストを送信しました。'
+      redirect_to homes_confirm_path #, notice: '女の子へリクエストを送信しました。'
     else
       render :new
     end
   end
   
   def show
+  end
+  
+  def confirm
+    @home = Home.last
+    @sender = Performer.find(@home.sender_id)
+    @receiver = Performer.find(@home.receiver_id)
+    p @receiver
   end
   
   def update

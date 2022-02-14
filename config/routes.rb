@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'homes/job_offer'
   get 'homes/play_content'
   get 'homes/fee'
+  get 'homes/confirm'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :tests, only: [:index, :show]

@@ -5,58 +5,58 @@
 <h1>プロフィール</h1>
 
 <div class="container">
-    <% if '審査依頼' == @user.performer.progress && '女' == @user.sex %>
-      <div class="row my-5">
-        <p class="large">面接不要の書類審査を通過後に表示されます</p>
-      </div>
-      
-      <div class="row my-5">
-        <button type="button" class="m-1 btn btn-light"><%= link_to "書類審査申請", new_performer_path, class: "large" %></button>
-      </div>
-    <% elsif '審査中' == @user.performer.progress && '女' == @user.sex %>
-      <div class="row my-5">
-        <p class="large"><%= @user.nickname %>さんの書類を審査中です。<br>
-        審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。</p>
-      </div>
-      
-    <% elsif '入店' == @user.performer.progress %>
+  <% if '審査依頼' == @user.performer.progress && '女' == @user.sex %>
     <div class="row my-5">
-      <div class="col-sm-3">
-        <%= display_thumbnail(@user.performer) %>
-      </div>
-      
-      <div class="col-sm-9">
-        <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p><br><br>
-      
-        <!--<button type="button" class="m-1 btn btn-light"><%#= link_to "リクエスト", new_home_path,class: "large", method: "get", params:{status: '製作中'} %></button>-->
-        <!--params:{status: params[:id]}で現在のshow/idのidの値を取得して、homes#newへ送る-->
-        <%= button_to 'リクエスト', {controller: 'homes', action: 'new'},{method: :get, class: "m-1 btn btn-light large" , params:{status: params[:id]}}%>
-      </div>
-      
-      <table class="table">
-        <tr>
-          <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
-        </tr>
-        <tr>
-          <td><%= schedule(@user.performer.sun_start.strftime('%H:%M'), @user.performer.sun_end.strftime('%H:%M')) %></td>
-          <td>定休日</td>
-          <td><%= schedule(@user.performer.tue_start.strftime('%H:%M'), @user.performer.tue_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.wed_start.strftime('%H:%M'), @user.performer.wed_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.thu_start.strftime('%H:%M'), @user.performer.thu_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.fri_start.strftime('%H:%M'), @user.performer.fri_end.strftime('%H:%M')) %></td>
-          <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
-        </tr>
-      </table>
+      <p class="large">面接不要の書類審査を通過後に表示されます</p>
     </div>
     
-    <% else %> <!--男の場合-->
-      <%= image_tag('/img/mobu.png', class: 'square') %>
-      <table class="table">
-        <tr><td><%= "ニックネーム：#{@user.nickname}" %></td></tr>
-        <tr><td><%= "利用回数：#{@user.trade}" %></td></tr>
-        <tr><td><%= "Eメール：#{@user.email}" %></td></tr>
-        <tr><td><%= "住所: #{@user.address}" %></td></tr>
-        <tr><td><%= "電話番号: #{@user.telephone_number}" %></td></tr>
-      </table>
-    <% end %>
+    <div class="row my-5">
+      <button type="button" class="m-1 btn btn-light"><%= link_to "書類審査申請", new_performer_path, class: "large" %></button>
+    </div>
+  <% elsif '審査中' == @user.performer.progress && '女' == @user.sex %>
+    <div class="row my-5">
+      <p class="large"><%= @user.nickname %>さんの書類を審査中です。<br>
+      審査が完了するまでお待ちください。2～3日経っても判定結果連絡がこない場合はご連絡ください。</p>
+    </div>
+    
+  <% elsif '入店' == @user.performer.progress %>
+  <div class="row my-5">
+    <div class="col-sm-3">
+      <%= display_thumbnail(@user.performer) %>
+    </div>
+    
+    <div class="col-sm-9">
+      <p class="large white"><%= @user.nickname+"さんの攻撃技：" %><br><%= @user.performer.attack %></p><br><br>
+    
+      <!--<button type="button" class="m-1 btn btn-light"><%#= link_to "リクエスト", new_home_path,class: "large", method: "get", params:{status: '製作中'} %></button>-->
+      <!--params:{status: params[:id]}で現在のshow/idのidの値を取得して、homes#newへ送る-->
+      <%= button_to 'リクエスト', {controller: 'homes', action: 'new'},{method: :get, class: "m-1 btn btn-light large" , params:{status: params[:id]}}%>
+    </div>
+    
+    <table class="table">
+      <tr>
+        <td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td>
+      </tr>
+      <tr>
+        <td><%= schedule(@user.performer.sun_start.strftime('%H:%M'), @user.performer.sun_end.strftime('%H:%M')) %></td>
+        <td>定休日</td>
+        <td><%= schedule(@user.performer.tue_start.strftime('%H:%M'), @user.performer.tue_end.strftime('%H:%M')) %></td>
+        <td><%= schedule(@user.performer.wed_start.strftime('%H:%M'), @user.performer.wed_end.strftime('%H:%M')) %></td>
+        <td><%= schedule(@user.performer.thu_start.strftime('%H:%M'), @user.performer.thu_end.strftime('%H:%M')) %></td>
+        <td><%= schedule(@user.performer.fri_start.strftime('%H:%M'), @user.performer.fri_end.strftime('%H:%M')) %></td>
+        <td><%= schedule(@user.performer.sat_start.strftime('%H:%M'), @user.performer.sat_end.strftime('%H:%M')) %></td>
+      </tr>
+    </table>
   </div>
+  
+  <% else %> <!--男の場合-->
+    <%= image_tag('/img/mobu.png', class: 'square') %>
+    <table class="table">
+      <tr><td><%= "ニックネーム：#{@user.nickname}" %></td></tr>
+      <tr><td><%= "利用回数：#{@user.trade}" %></td></tr>
+      <tr><td><%= "Eメール：#{@user.email}" %></td></tr>
+      <tr><td><%= "住所: #{@user.address}" %></td></tr>
+      <tr><td><%= "電話番号: #{@user.telephone_number}" %></td></tr>
+    </table>
+  <% end %>
+</div>

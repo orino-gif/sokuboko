@@ -25,9 +25,19 @@
 
     <div class="row"> 
       ■リクエスト内容
+    </div>
+    <div class="col-10">
+      <%= @receiver.nickname+"さんからの" %><%= @receiver.performer.attack %><br>
+    </div>
+      
+    <div class="row mt-3">
+      &emsp;<%= "その他のリクエストや禁止技があれば記入" %>
+    </div>
+    <div class="row">
       <div class="col-sm-auto">
-        <%= @receiver.nickname+"さんからの" %><%= @receiver.performer.attack %>
-        <%= f.text_area :request ,{value: '追加の攻撃技や禁止技があれば記入',size:"80x4"} %>
+        
+      
+        <%= f.text_area :request ,{value: '',size:"80x4"} %>
         <%= f.hidden_field :sender_id, :value => @sender.id %>
         <%= f.hidden_field :receiver_id, :value => @receiver.id %>
       </div>
@@ -38,8 +48,9 @@
     </div>    
     
     <div class="row">
-      <p>※ネット上でリクエストを行うには、会員登録が必要です<br>  
-      ※リクエスト内容により、ご要望にお応えできない場合があります</p>
+      <p>※リクエスト内容により、ご要望にお応えできない場合があります<br>
+      ※ネット上でリクエストを行うには、会員登録が必要です</p>
+      
     </div>
   <% end %>
 </div>
