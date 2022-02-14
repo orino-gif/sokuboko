@@ -28,30 +28,25 @@
   </div>
 
   <div class="field">
-    <%= f.label :郵便番号 %><br />
+    <%= f.label :"郵便番号(例:270-2233)(半角)" %><br />
     <%= f.text_field :post_number %>
   </div>
   
   <div class="field">
-    <%= f.label :住所 %><br />
+    <%= f.label :"住所(全角)" %><br />
     <%= f.text_field :address, :size=>"100" %>
   </div>
   
   <div class="field">
-    <%= f.label :電話番号 %><br />
+    <%= f.label ":電話番号(例：08017640799)(半角)" %> <br />
     <%= f.text_field :telephone_number %>
   </div>
-  
-  <p><br></p>
 
   <div class="field">
     <%= f.label :current_password %> <i>(<%= "※アカウント情報の" + t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-  <div class="actions">
-    <%#= f.submit t('.update') %>
-    <%= f.submit "変更" %>
-  </div>
+  <div class="actions"><%#= f.submit t('.update') %><%= f.submit "変更" %></div>
 <% end %>
 
 <hr>

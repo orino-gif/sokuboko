@@ -20,6 +20,7 @@ class HomesController < ApplicationController
 
     if Home.create(homes_params)
       @home = Home.last
+      
       p @home
       UserMailer.requests(@sender,@receiver,@home).deliver_later
       p "test"

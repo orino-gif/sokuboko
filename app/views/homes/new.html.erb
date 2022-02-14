@@ -21,19 +21,15 @@
       <%= f.radio_button :system_fee, "17000" %>
       <%= f.label :system_fee, '80分17000円 ', value: '17000' %>
     </div>
-    
-    <div class="row">
-      ■リクエスト内容：
-    </div>
-        
-    <div class="row"> &emsp;
-      <div class="col">
-        <%= f.text_area :request ,{value: '追加の攻撃技や禁止技を記入',size:"60x8"} %>
+  
+
+    <div class="row"> 
+      ■リクエスト内容
+      <div class="col-sm-auto">
+        <%= @receiver.nickname+"さんからの" %><%= @receiver.performer.attack %>
+        <%= f.text_area :request ,{value: '追加の攻撃技や禁止技があれば記入',size:"80x4"} %>
         <%= f.hidden_field :sender_id, :value => @sender.id %>
         <%= f.hidden_field :receiver_id, :value => @receiver.id %>
-      </div>
-      <div class="col">
-        
       </div>
     </div>
     
@@ -41,7 +37,7 @@
       <%= f.submit "確認" %>
     </div>    
     
-    <div class="row"> &emsp;
+    <div class="row">
       <p>※ネット上でリクエストを行うには、会員登録が必要です<br>  
       ※リクエスト内容により、ご要望にお応えできない場合があります</p>
     </div>

@@ -1,3 +1,5 @@
+<meta name="robots" content="none">
+
 <% content_for(:html_title) { '登録情報変 | 即ボコ女子松戸店' } %>
 
 <h1>登録情報変更</h1>
@@ -65,7 +67,7 @@
     
     <div class="row my-5">
       <%= form_with(model: @user.performer, local: true) do |f| %>
-        <%= "SNSリンク先：" %><%= f.text_field :sns ,{size:"30"} %>
+        <%= "URL or SNSリンク先：" %><%= f.text_field :sns ,{size:"30"} %>
         <%= f.submit "変更" %>
       <% end %>
     </div>
@@ -80,9 +82,9 @@
       <tr><td><%= "住所: #{@user.address}" %></td></tr>
       <tr><td><%= "電話番号: #{@user.telephone_number}" %></td></tr>
       <tr><td><%= "在籍 or 退会：在籍" %></td></tr>
-      <td><button type="button">
-        <%= link_to "変更", edit_user_registration_path %>
-      </button></td>
+      <td>
+        <button type="button"><%= link_to "変更", edit_user_registration_path %></button>
+      </td>
     </table>
   </div>
 </div>
