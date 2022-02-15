@@ -35,8 +35,6 @@
     </div>
     <div class="row">
       <div class="col-sm-auto">
-        
-      
         <%= f.text_area :request ,{value: '',size:"80x4"} %>
         <%= f.hidden_field :sender_id, :value => @sender.id %>
         <%= f.hidden_field :receiver_id, :value => @receiver.id %>
@@ -44,7 +42,7 @@
     </div>
     
     <div class="row"> &emsp;
-      <%= f.submit "確認" %>
+      <%= f.submit "入力確認画面へ" %>
     </div>    
     
     <div class="row">

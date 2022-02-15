@@ -16,9 +16,13 @@
       <h4>内容確認</h4>
       料金(コース料金<%= @home.system_fee %>円＋指名料2000円＋交通費)：<br>
       <%= @home.system_fee %>円＋2000円＋<%= address %>円 ＝<%= @home.system_fee + 2000 %>円<br><br>
-      リクエスト内容：<br><%= @receiver.attack %><%= '、'+@home.request %><br><br>
+      リクエスト内容：<br><%= @receiver.attack %><%= "\n[追加]" if '' != @home.request %><%= @home.request %><br><br>
       届け先住所:<br><%= @sender.user.address %><br><br>
     </p>
+    <%= "test" + @home.receiver_id.to_s %>
+    <!--<button type="button" class="m-1 btn btn-light"><%#= link_to "戻る", new_home_path(key:  @home.receiver_id) , method: :delete %></button>-->
+    <button type="button" class="m-1 btn btn-light"><%= link_to "戻る", new_home_path(key:  @home.receiver_id) , method: :get %></button>
+    <button type="button" class="m-1 btn btn-light"><%= link_to "送信", homes_path %></button>
   </div>
   
 </div>

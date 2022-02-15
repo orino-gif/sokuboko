@@ -10,8 +10,22 @@ class HomesController < ApplicationController
     if user_signed_in?
      @sender = User.find(current_user.id)
     end
-    @receiver = User.find(params[:status])
-    $receiver = User.find(params[:status])
+    
+    p params[:key]
+    if params[:status]
+      @receiver = User.find(params[:status])
+      $receiver = User.find(params[:status])
+    else
+      @receiver = User.find(params[:key])
+      $receiver = User.find(params[:key])
+    end
+      
+  end
+  
+  def confirm
+    @home = Home.last
+    @sender = Performer.find(@home.sender_id)
+    @receiver = Performer.find(@home.receiver_id)
   end
   
   def create
@@ -33,14 +47,13 @@ class HomesController < ApplicationController
   def show
   end
   
-  def confirm
-    @home = Home.last
-    @sender = Performer.find(@home.sender_id)
-    @receiver = Performer.find(@home.receiver_id)
-    p @receiver
+  def update
   end
   
-  def update
+  def destroy
+    # Home.last.destroy
+    # render :new
+    
   end
   
   private
