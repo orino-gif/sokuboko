@@ -4,6 +4,8 @@
 
 <h1>プロフィール</h1>
 
+<p class="large"><%=   flash[:request]  %></p>
+
 <div class="container">
   <% if '審査依頼' == @user.performer.progress && '女' == @user.sex %>
     <div class="row my-5">

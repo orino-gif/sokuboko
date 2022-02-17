@@ -27,4 +27,15 @@ class UserMailer < ApplicationMailer
       subject: "[即ボコ女子]#{@receiver.nickname}さんへリクエストが送られました。"
     )
   end
+  
+  def request_content(sender,receiver,home)
+    @sender = sender
+    @receiver = receiver
+    @home = home
+    mail(
+      to: "#{ENV['ADMINISTRATOR_MAIL']}",
+      bcc: "#{@sender.email},#{@receiver.email}",
+      subject: "[即ボコ女子]#{@receiver.nickname}さんへのリクエスト内容"
+    )
+  end
 end
