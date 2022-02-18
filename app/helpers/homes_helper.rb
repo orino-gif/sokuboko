@@ -22,4 +22,28 @@ module HomesHelper
     end
     
   end
+  
+  def calculation_running_time(sender, receiver)
+    if sender.user.address.include?("松戸") && receiver.user.address.include?("松戸") or
+      sender.user.address.include?("市川") && receiver.user.address.include?("市川") or 
+      sender.user.address.include?("葛飾") && receiver.user.address.include?("葛飾") or 
+      sender.user.address.include?("葛飾") && receiver.user.address.include?("松戸") or 
+      sender.user.address.include?("市川") && receiver.user.address.include?("松戸") then
+      
+      return 30
+      
+    elsif sender.user.address.include?("松戸") && receiver.user.address.include?("市川") or 
+      sender.user.address.include?("松戸") && receiver.user.address.include?("葛飾") then 
+
+      return 40
+      
+    elsif sender.user.address.include?("市川") && receiver.user.address.include?("葛飾") or 
+      sender.user.address.include?("葛飾") && receiver.user.address.include?("市川") then
+      
+      return 50
+      
+    else
+      return "計算不可能"
+    end
+  end
 end

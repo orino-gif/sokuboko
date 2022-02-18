@@ -27,6 +27,7 @@ class PerformersController < ApplicationController
       UserMailer.request_content(@sender,@receiver,@home).deliver_later
       redirect_to controller: :performers, action: :show
       flash[:request] = "通知:リクエストのメールを送信しました。"
+      
     end
   end
   

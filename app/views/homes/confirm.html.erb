@@ -7,15 +7,18 @@
 <div class="container">
   <div class="border border-danger inner">
     <p class="right">
-      <% str = @sender.user.address %>
-      <% if str.include?("松戸") then %>
-        <% address = 0 %>
+      <% if @sender.user.address.include?("松戸") then %>
+        <% fare = 0 %>
       <% else %>
-        <% address = 2000 %>
+        <% fare = 2000 %>
       <% end %>
+      
+      <% @home.delivery_time = calculation_running_time(@sender, @receiver) #if !"計算不可能" %>
+      
       <h4>内容確認</h4>
       料金(コース料金<%= @home.system_fee %>円＋指名料2000円＋交通費)：<br>
-      <%= @home.system_fee %>円＋2000円＋<%= address %>円 ＝<%= @home.system_fee + 2000 %>円<br><br>
+      <%= @home.system_fee %>円＋2000円＋<%= fare %>円 ＝<%= @home.system_fee + 2000 %>円<br><br>
+      <%= "予想到着時間:" + @home.delivery_time.to_s + '分～' + (@home.delivery_time+20).to_s + '分' %><br><br>
       リクエスト内容：<br><%= @receiver.attack %><br>
       <%= "[追加と禁止事項]" if '' != @home.request %><%= @home.request %><br><br>
       届け先住所:<br><%= @sender.user.address %><br><br>
