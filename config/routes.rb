@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions',
   }
-  root to: 'homes#index'
+  root to: 'performers#index'
 
   get 'performers/identification'
   get 'performers/full_body'
