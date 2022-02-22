@@ -28,6 +28,8 @@ class HomesController < ApplicationController
     @receiver = Performer.find(@home.receiver_id)
   end
   
+  
+  
   def create
     @sender = User.find(current_user.id)
     @receiver = $receiver
@@ -45,6 +47,7 @@ class HomesController < ApplicationController
   end
   
   def show
+   @homes = Home.where(sender_id:current_user.id).or(Home.where(receiver_id:current_user.id))
   end
   
   def update
