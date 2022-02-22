@@ -7,7 +7,7 @@
 <p class="large"><%=   flash[:request]  %></p>
 
 <div class="container">
-  <% if '審査依頼' == @user.performer.progress && '女' == @user.sex %>
+  <% if nil == @user.performer.progress && '女' == @user.sex %>
     <div class="row my-5">
       <p class="large">面接不要の書類審査を通過後に表示されます</p>
     </div>
@@ -51,7 +51,11 @@
     </table>
   </div>
   
-  <% else %> <!--男の場合-->
+  <% else %>
+  
+  <% end %>
+  
+  <% if  '男' == @user.sex %><!--男の場合-->
     <%= image_tag('/img/mobu.png', class: 'square') %>
     <table class="table">
       <tr><td><%= "ニックネーム：#{@user.nickname}" %></td></tr>
