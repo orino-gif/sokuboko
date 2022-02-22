@@ -30,7 +30,7 @@
       届け先住所:<br><%= @sender.user.address %><br><br>
     </p>
     <button type="button" class="m-1 btn btn-light"><%= link_to "戻る", new_home_path(key:  @home.receiver_id) , method: :get %></button>
-    <button type="button" class="m-1 btn btn-light"><%= link_to "リクエスト確定", performer_path(@sender.user.id, request: @receiver.id, home_id: @home.id) %></button>
+    <button type="button" class="m-1 btn btn-light"><%= link_to "リクエスト確定", home_path(@sender.user.id, request: @receiver.id, home_id: @home.id) %></button>
   </div>
   
 </div>

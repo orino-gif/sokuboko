@@ -18,19 +18,6 @@ class PerformersController < ApplicationController
       @performer.save
       UserMailer.progress_email(@performer).deliver_later
     end
-
-    if nil != params[:request]
-      @sender = User.find(current_user.id)
-      @receiver = User.find(params[:request])
-      @home = Home.find(params[:home_id])
-      
-      p "home"+@home.request
-
-      UserMailer.request_content(@sender,@receiver,@home).deliver_later
-      redirect_to controller: :performers, action: :show
-      flash[:request] = "通知:リクエストのメールを送信しました。"
-      
-    end
   end
   
   def edit

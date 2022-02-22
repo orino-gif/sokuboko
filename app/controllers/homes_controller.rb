@@ -48,6 +48,16 @@ class HomesController < ApplicationController
   
   def show
    @homes = Home.where(sender_id:current_user.id).or(Home.where(receiver_id:current_user.id))
+    if nil != params[:request]
+      @sender = User.find(current_user.id)
+      @receiver = User.find(params[:request])
+      @home = Home.find(params[:home_id])
+      
+      p "home"+@home.request
+
+      UserMailer.request_content(@sender,@receiver,@home).deliver_later
+      redirect_to home_path, notice: '手配中です・・・。'
+    end
   end
   
   def update

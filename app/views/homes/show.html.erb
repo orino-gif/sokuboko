@@ -8,20 +8,20 @@
     <%= image_tag '/img/driving.png', class:'square' %>
   </div>
   
-  <div class="row my-5 border border-primary">
+  
     
     <% @homes.each do | home | %>
-    
+    <div class="row my-5 border border-primary">
       <div class="col"><%= home.created_at.to_s + ":" %></div>
       <div class="col"><%= User.find(home.sender_id).nickname %></div>
       <div class="col"><%= '⇒' %></div>
       <div class="col"><%= link_to home.request ,home_path(home.id) %></div>
       <div class="col"><%= '⇒' %></div>
       <div class="col"><%= User.find(home.receiver_id).nickname %></div>
-      
+    </div>  
     <% end %>
     
-  </div>
+  
 
   </div>
 </div>
